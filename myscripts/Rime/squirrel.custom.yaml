@@ -1,0 +1,18 @@
+
+patch:
+
+  "app_options/io.alacritty":
+    ascii_mode: true
+    vim_mode: true
+  "app_options/tmux":
+    ascii_mode: true
+    vim_mode: true
+  "app/ md.obsidian":
+    vim_mode: true
+
+   # "style/color_scheme": google
+  "style/color_scheme": mac_light
+  "style/color_scheme_dark": psionics
+  # "style/color_scheme": purity_of_essence
+  # 
+

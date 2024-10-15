@@ -1,0 +1,11 @@
+.fseventsd
+.DS_Store
+$RECYCLE.BIN
+$UGM
+Autorun.inf
+System Volume Information
+.Trash
+.Trashes
+.TemporaryItems
+RARBG_DO_NOT_MIRROR.exe
+.DocumentRevisions-V100

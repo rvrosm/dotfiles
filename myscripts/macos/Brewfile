@@ -1,0 +1,68 @@
+brew "coreutils"
+brew "gnupg"
+brew "node"
+brew "brightness"
+brew "iperf3"
+brew "rsync"
+brew "imagemagick"
+brew "universal-ctags"
+brew "git"
+brew "libusb"
+brew "vim"
+brew "pass"
+brew "gopass"
+
+# shells
+brew "zsh"
+brew "tmux"
+brew "tmuxp"
+
+# new tools
+brew "bfs"
+
+# go
+brew "lf"
+brew "fzf"
+brew "duf"
+
+# RIIR
+
+brew "bat"
+brew "bottom"
+brew "broot"
+brew "doggo"
+brew "eza"
+brew "fclones"
+brew "fd"
+brew "procs"
+brew "rm-improved"
+brew "ripgrep"
+brew "starship"
+brew "hyperfine"
+brew "vivid"
+brew "zoxide"
+
+tap "macos-fuse-t/cask"
+brew "fuse-t"
+brew "fuse-t-sshfs"
+
+tap "browsh-org/homebrew-browsh"
+brew "browsh"
+
+# fonts
+cask "fontforge"
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-fira-mono-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-tex-gyre-pagella"
+
+cask "mpv"
+cask "aegisub"
+cask "anki"
+cask "balenaetcher"
+cask "blender"
+cask "eloston-chromium"
+cask "gimp"
+cask "skim"
+cask "tomatobar"

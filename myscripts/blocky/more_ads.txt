@@ -1,0 +1,6 @@
+# ads
+/beacons.*\.gvt3\.com$/
+
+# android tv ad
+androidtvchannels-pa.googleapis.com
+Androidtvwatsonfe-pa.googleapis.com

@@ -1,0 +1,18 @@
+session_name: bg
+windows:
+  - window_name: socks5 tunnels
+    layout: tiled
+    shell_command_before:
+      - cd ~
+    panes:
+      - shell_command:
+        - tor
+      - shell_command:
+        - cd ~/ss/ 
+        - sslocal -vc bv.json
+      - shell_command:
+        - cd ~/ss/
+        - sslocal -vc bv6.json
+      - shell_command:
+        - cd ~/ss/ 
+        - sslocal -vc rack.json

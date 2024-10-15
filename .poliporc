@@ -1,0 +1,8 @@
+# your SOCKS local port
+# socksParentProxy = 127.0.0.1:1080
+# socksProxyType = socks5
+
+# default port is 8123
+proxyAddress = "0.0.0.0"
+# proxyPort = 9743
+

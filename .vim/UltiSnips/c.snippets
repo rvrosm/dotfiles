@@ -1,0 +1,586 @@
+
+# operater {{{
+# +    sum                    integers, floats, complex values, strings
+# -    difference             integers, floats, complex values
+# *    product                integers, floats, complex values
+# /    quotient               integers, floats, complex values
+# %    remainder              integers
+
+# &    bitwise AND            integers
+# |    bitwise OR             integers
+# ^    bitwise XOR            integers
+# &^   bit clear (AND NOT)    integers
+
+# <<   left shift             integer << integer >= 0
+# >>   right shift            integer >> integer >= 0
+
+# shorthand variable declaration
+snippet : "name := value"
+${1} := ${0}
+endsnippet
+
+snippet = "name = value"
+${1} = ${0}
+endsnippet
+
+snippet += "name += value"
+${1} += ${0}
+endsnippet
+
+snippet -= "name -= value"
+${1} -= ${0}
+endsnippet
+
+snippet *= "name *= value"
+${1} -= ${0}
+endsnippet
+
+snippet /= "name /= value"
+${1} /= ${0}
+endsnippet
+
+
+snippet eq "name == value"
+${1} == ${0}
+endsnippet
+
+snippet ne "name != value"
+${1} != ${0}
+endsnippet
+
+snippet lt "name < value"
+${1} < ${0}
+endsnippet
+
+snippet le "name <= value"
+${1} <= ${0}
+endsnippet
+
+snippet gt "name > value"
+${1} > ${0}
+endsnippet
+
+snippet ge "name >= value"
+${1} >= ${0}
+endsnippet
+# }}}
+# keyword {{{
+# auto break        case      continue
+# default do double else enum extern float for goto if
+# int long register return short signed sizeof static 
+# struct switch typedef union unsigned void volatile while
+
+snippet br "break" 
+break 
+endsnippet
+
+# case
+snippet ca "case ...:"
+case ${1:value}:
+	${0:${VISUAL}}
+endsnippet
+
+# channel
+snippet cr "char"
+char ${0:char}
+endsnippet
+
+# constant
+snippet co "const XXX Type = ..."
+const ${1:NAME_Type} = ${0:value}
+endsnippet
+
+# constants
+snippet cos "const ( ... )"
+const (
+	${1:NAME_type} = ${2:value}
+	${0}
+)
+endsnippet
+
+# constants with iota
+snippet ci "const ( ... = iota )"
+const (
+	${1:NAME} ${2:Type} = iota
+	${0}
+)
+endsnippet
+
+# continue
+snippet cn "continue"
+continue
+endsnippet
+
+# default case
+snippet de "default: ..."
+default:
+	${0:${VISUAL}}
+endsnippet
+
+snippet db "double"
+double
+endsnippet
+
+
+# defer
+snippet df "defer someFunction()"
+defer ${1:func}
+endsnippet
+
+snippet fs "for select"
+for {
+    select {
+	case ${2:${1:result} := }<- ${3:channel}:
+	    ${0}
+    }
+}
+endsnippet
+
+snippet sl "select {case ...}"
+select {
+    case ${2:${1:result} := }<- ${3:channel}:
+	${0}
+}
+endsnippet
+
+
+# if condition
+snippet if "if ... { ... }"
+if ${1:condition} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+# if initiate condition
+snippet i; "if; ... { ... }"
+if ${1:_, ok} := ${2:map[key]}; ${3:condition} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+
+# else snippet
+snippet el "else { ... }"
+else {
+	${0:${VISUAL}}
+}
+endsnippet
+
+# enum snippet
+snippet en "enum"
+enum 
+endsnippet
+
+# extern snippet
+snippet ex "extern"
+extern 
+endsnippet
+
+
+# if...else... condition
+snippet ie "if ... else ..."
+if ${1:condition} {
+	${2:${VISUAL}}
+} else {
+	${0}
+}
+endsnippet
+
+# if...else if ... condition
+snippet iei "if ... else if ..."
+if ${1:condition} {
+	${2:${VISUAL}}
+} else if ${3:condition} {
+	${0}
+}
+endsnippet
+
+snippet r "return" b
+return 
+endsnippet
+
+snippet re "return err" b
+return err
+endsnippet
+
+snippet rn "return nil" b
+return nil
+endsnippet
+
+snippet r, "return nil, err" b
+return ${1:nil}, ${2:err}
+endsnippet
+
+snippet ra "range" 
+range 
+endsnippet
+
+# for range loop
+snippet rk "for v := range items { ... }"
+for ${2:k} := range ${1} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+# for range loop
+snippet rv "for k, v := range items { ... }"
+for _, ${2:v} := range ${1} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+# switch
+snippet sw "switch x { ... }"
+switch ${1:var} {
+case ${2:value1}:
+    ${3}
+default:
+    ${0}
+}
+endsnippet
+
+# map
+snippet ma "map[Type]Type" w
+map[${1:string}]${0:string}
+endsnippet
+
+# package
+snippet pa "package ..." b
+// Package $1 provides ${2:...}
+package ${1:main}
+${0}
+endsnippet
+
+
+
+# struct
+snippet s "type T struct { ... }" b
+type ${1:Type} struct {
+    ${0:/* TODO: add fields */}
+}
+endsnippet
+
+
+
+# type
+snippet ty "type" b
+type
+endsnippet
+
+snippet st "struct" 
+struct{${0}}
+endsnippet
+
+snippet in "interface" 
+interface{${0}}
+endsnippet
+
+
+
+# variable declaration
+snippet v "var x Type" b
+var ${0:name_type}
+endsnippet
+
+snippet vv "var x Type = value" b
+var ${1:name_type} = ${0:value}
+endsnippet
+
+
+# variables declaration
+snippet vs "var ( name type = value )" b
+var (
+    ${0:name}
+)
+endsnippet
+
+
+snippet sz "size_t" 
+size_t ${0}
+endsnippet
+
+# }}}
+
+# data type {{{
+# Types:
+#   bool char  const int float double
+# signed int, signed, unsigned int, unsigned, short int, long int
+# signed char, unsigned char
+
+context "re.search(r'\S',snip.before[:-2]) and re.match(r'[^\w\[]',snip.before[-3])"
+snippet /b[ol]/ "bool" rwe
+bool
+endsnippet
+
+snippet c "char" 
+char ${0}
+endsnippet
+
+snippet sc "signed char" 
+signed char ${0}
+endsnippet
+
+snippet uc "unsigned char" 
+unsigned char ${0}
+endsnippet
+
+
+snippet co "const" 
+const ${0}
+endsnippet
+
+snippet i "int" 
+int ${0}
+endsnippet
+
+snippet sn "signed" 
+signed ${0}
+endsnippet
+
+snippet un "unsigned" 
+unsigned ${0}
+endsnippet
+
+snippet sh "short" 
+short ${0}
+endsnippet
+
+snippet l "long" 
+long ${0}
+endsnippet
+
+snippet float "float" 
+float ${0}
+endsnippet
+
+snippet db "double" 
+double ${0}
+endsnippet
+
+
+
+# }}}
+# include headers {{{
+# iio stdio.h {{{
+snippet iio "#include <stdio.h>" b
+#include <stdio.h>
+${0}
+endsnippet
+
+snippet ff "fprintf ..."
+fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet pf "printf()" 
+printf("$1\n", $2);
+endsnippet
+
+
+post_jump "printf_expand_args(snip)"
+snippet "printf" "printf with auto-expand args" wr
+printf("$1\n"$2);
+endsnippet
+
+# stdio.h }}}
+# ili stdlib {{{
+snippet ili "#include <stdlib.h>" b
+#include <stdlib.h>
+${0}
+endsnippet
+# }}}
+# isr string {{{
+snippet isr "#include <string.h>" b
+#include <string.h>
+${0}
+endsnippet
+
+# sr string }}}
+# ifl float {{{
+snippet ifl "#include <float.h>" b
+#include <float.h>
+${0}
+endsnippet
+
+# sr string }}}
+# include headers }}}
+
+# https://raw.githubusercontent.com/honza/vim-snippets/master/UltiSnips/c.snippets
+###########################################################################
+#                            TextMate Snippets                            #
+###########################################################################
+# --------------
+# Functions
+# --------------
+global !p
+def printf_expand_args(snip):
+	"""
+	This will look how many placeholders printf has and adds the separated commas
+	at the end.
+	"""
+	
+	# now add so many "," as much as the amount of placeholders
+	amount_placeholders = snip.tabstops[1].current_text.count("%")
+
+	output = ""
+
+	# Add the amount of tabstops
+	for placeholder_index in range(3, amount_placeholders + 3):
+		output += f", ${placeholder_index}"
+	
+	# convert them into tabstops
+	snip.expand_anon(output)
+
+endglobal
+
+# ==============
+# Snippets 
+# ==============
+priority -50
+
+snippet def "#define ..."
+#define $1
+endsnippet
+
+snippet #ifndef "#ifndef ... #define ... #endif"
+#ifndef ${1/([A-Za-z0-9_]+).*/$1/}
+#define ${1:SYMBOL} ${2:value}
+#endif /* ifndef $1 */
+endsnippet
+
+snippet #if "#if #endif" b
+#if ${1:0}
+${VISUAL}$0
+#endif
+endsnippet
+
+snippet mark "#pragma mark (mark)"
+#if 0
+${1:#pragma mark -
+}#pragma mark $2
+#endif
+
+$0
+endsnippet
+
+snippet main "main() (main)"
+int main(int argc, char *argv[])
+{
+	${VISUAL}$0
+	return 0;
+}
+endsnippet
+
+snippet for "for loop (for)"
+for (${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fori "for int loop (fori)"
+for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fora "for-loop" b
+for (${1:var}; ${2:condition}; `!p
+if len(t[1]) > 0:
+	snip.rv = t[1].split('=')[0].split()[-1]
+`++) {
+	
+	$0
+} /* for ($1; $2; `!p if len(t[1]) > 0: snip.rv = t[1].split('=')[0].split()[-1]`++) */
+endsnippet
+
+snippet once "Include header once only guard"
+#ifndef ${1:`!p
+if not snip.c:
+	import random, string
+	name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+	rand = ''.join(random.sample(string.ascii_letters+string.digits, 8))
+	snip.rv = ('%s_%s' % (name,rand)).upper()
+else:
+	snip.rv = snip.c`}
+#define $1
+
+${VISUAL}$0
+
+#endif /* end of include guard: $1 */
+endsnippet
+
+
+snippet eli "else if .. (eli)"
+else if (${1:/* condition */}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet st "struct"
+struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
+	${0:/* data */}
+};
+endsnippet
+
+snippet fn "function" b
+${1:void} ${2:function_name}($3)
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fund "function declaration" b
+${1:void} ${2:function_name}($3);
+endsnippet
+
+global !p
+def split_line(text):
+	import textwrap
+	lines = textwrap.wrap(text, 78 - 19)
+	output = list()
+	for line in lines:
+		output.append('*' + ' '*19 + line)
+	snip_line = snip.tabstops[4].end[0]
+	snip.buffer.append(output, snip_line + 1)
+	del snip.buffer[snip_line]
+
+def get_args(arglist):
+	args = [arg.strip() for arg in arglist.split(',') if arg]
+	return args
+endglobal
+
+post_jump "if snip.tabstop == 0 : split_line(snip.tabstops[4].current_text)"
+snippet head "File Header" b
+/******************************************************************************
+* File:             `!p snip.rv = fn`
+*
+* Author:           ${2}  
+* Created:          `date +%m/%d/%y` 
+* Description:      ${4:${VISUAL}}
+*****************************************************************************/
+${0}
+endsnippet
+
+post_jump "if snip.tabstop == 0 : split_line(snip.tabstops[4].current_text)"
+snippet func "Function Header" 
+/******************************************************************************
+* Function:         $1
+* Description:      ${4:${VISUAL}}
+* Where:`!p 
+snip.rv = ""
+snip >> 2
+
+args = get_args(t[2])
+if args:
+	for arg in args:
+		snip.rv += '\n' + '*' + ' '*19 + arg + ' - TODO'
+snip << 2
+`
+* Return:           $5
+* Error:            $6
+*****************************************************************************/
+${1}($2){
+	${0}
+}
+endsnippet
+# vim:ft=snippets:
+

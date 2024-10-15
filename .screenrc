@@ -1,0 +1,9 @@
+escape ^jj
+
+startup_message off
+vbell off
+
+hardstatus on
+altscreen on
+scrollback 10000
+defscrollback 10000

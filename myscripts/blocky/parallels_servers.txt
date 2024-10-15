@@ -1,0 +1,6 @@
+*.parallels.com
+*.parallels.com.cdn.cloudflare.net
+/^www.parallels\..*/
+/parallels\..*/
+*.parallelskorea.com
+*.myparallels.com

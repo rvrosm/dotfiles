@@ -1,0 +1,98 @@
+live_config_reload = true
+
+[window]
+dynamic_padding = false
+decorations = "none"
+# option_as_alt = "Both"
+startup_mode = "Maximized"
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+style = "Block"
+
+[font]
+# 15.5 is perfect for monaco. it will make lines almost fit the screen, but it's too small for me
+size = 17.5
+
+[font.bold]
+family = "Monaco"
+style = "Bold"
+
+[font.bold_italic]
+family = "Monaco"
+style = "Bold Italic"
+
+[font.italic]
+family = "Monaco"
+style = "Italic"
+
+[font.normal]
+family = "Monaco"
+style = "Regular"
+
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Escape"
+mode = "~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001E"
+key = "Key6"
+mods = "Control"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[colors.cursor]
+cursor     = "#29A63E"
+text       = "#000000"
+
+[colors.primary]
+background = "#000000"
+# hsl(45,15,65)
+foreground = "#8AE62E"
+
+[colors.normal]
+black      = "0x000000"
+red        = "#998282"
+green      = "#829989"
+yellow     = "#999982"
+blue       = "#828F99"
+magenta    = "#BF30BF"
+cyan       = "#30BFAA"
+white      = "#B3B0AA"
+
+[colors.bright]
+black      = "#111111"
+red        = "#CC6866"
+green      = "#70CC66"
+yellow     = "#CCCC33"
+blue       = "#6672CC"
+magenta    = "#CC33CC"
+cyan       = "#33CCB5"
+white      = "#B3B0AA"

@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+function dotfiles {
+   $(which git) --git-dir=${HOME}/.dotfiles/ --work-tree=${HOME} $@
+}
+
+dotfiles add $HOME/README.md
+dotfiles add $HOME/.gitignore
+
+dotfiles add $HOME/myscripts/
+
+# Linux
+dotfiles add $HOME/.dotfiles_linux/
+
+# alcaritty
+# dotfiles add $HOME/.config/alacritty/alacritty.yml
+dotfiles add $HOME/.config/alacritty/alacritty.toml
+
+# tmux
+dotfiles add $HOME/.tmux.conf
+
+# tmuxp
+dotfiles add $HOME/.config/tmuxp/
+
+
+
+# zsh
+dotfiles add $HOME/.zshrc
+dotfiles add $HOME/.config/zsh/linux.zsh
+dotfiles add $HOME/.config/zsh/macOS.zsh
+dotfiles add $HOME/.config/zsh/plugins.zsh
+
+# screen
+dotfiles add $HOME/.screenrc
+
+dotfiles add $HOME/.poliporc
+
+# vim
+dotfiles add $HOME/.vimrc
+dotfiles add $HOME/.vim/UltiSnips/
+dotfiles add $HOME/.vim/myplugin/
+
+# fastfetch
+dotfiles add $HOME/.config/fastfetch
+
+# mpv
+dotfiles add $HOME/.config/mpv/mpv.conf
+dotfiles add $HOME/.config/mpv/scripts
+
+# yt-dlp
+dotfiles add $HOME/.config/yt-dlp.conf
+
+# npm
+dotfiles add $HOME/.npmrc
+
+# zhengma
+# dotfiles add $HOME/Library/Rime/default.custom.yaml
+# dotfiles add $HOME/Library/Rime/zhengma.custom.yaml
+# dotfiles add $HOME/Library/Rime/squirrel.custom.yaml
+# dotfiles add $HOME/Library/Rime/zhengma.dict.yaml
+# dotfiles add $HOME/Library/Rime/zhengma.schema.yaml
+
+# X11 for xQuartz
+dotfiles add $HOME/.Xresources
+
+# sioyek
+dotfiles add $HOME/.config/sioyek/keys_user.config
+dotfiles add $HOME/.config/sioyek/prefs_user.config
+
+dotfiles status

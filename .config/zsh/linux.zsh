@@ -15,9 +15,10 @@ alias rl=resolvectl
 alias yp=yabsnap
 alias bk=btrbk
 
-alias Pu='pacman -Syu'
-alias Ps='pacman -S'
-alias Pr='pacman -R'
-alias Pq='pacman -Q'
-alias Pc='pacman -Syc'
+alias pmu='pacman -Syu'
+alias pms='pacman -Ss'
+alias pmi='pacman -S'
+alias pmr='pacman -R'
+alias pmq='pacman -Q'
+alias pmc='pacman -Syc'
 # Aliases }}}

@@ -1,6 +1,6 @@
 # Completion {{{
 # zstyle :compinstall filename "$$HOME/.zshrc"
-fpath=($$HOME/.zsh/completion $HOME/.zsh/functions $fpath)
+fpath=($HOME/.zsh/completion $HOME/.zsh/functions $fpath)
 autoload -Uz compinit; compinit
 
 zmodload zsh/complist
@@ -9,11 +9,13 @@ zmodload zsh/complist
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' complete-options true
 zstyle ':completion:*' case-insensitive yes
-zstyle ':completion:*' completer _complete _extensions _match _approximate _expand_alias _ignored _files
+zstyle ':completion:*' completer _complete _extensions _match _approximate _expand_alias _ignored _files 
+
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands
+zstyle ':completion:*' list-suffixes true
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' menu select
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:*:cp:*' file-sort modification
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
@@ -21,9 +23,9 @@ zstyle ':completion:*:corrections' format $'\e[93m -- %d (errors: %e) --\e[0m'
 zstyle ':completion:*:descriptions' format $'\e[2m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[91m -- No Matches Found --\e[0m'
 
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $HOME/.zsh/cache
 # zstyle ':completion:*' rehash true
-# zstyle ':completion:*' use-cache on
-# zstyle ':completion:*' cache-path $HOME/.zsh/cache
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -53,19 +55,19 @@ setopt SHARE_HISTORY     # Cause all terminals to share the same history 'sessio
 # PATH {{{
 path=(/usr/local/bin /usr/local/sbin $path)
 
-# local
-path=($HOME/myscripts/bin/ $HOME/.local/bin $path)
-
 # go
 path=($HOME/go/bin/ $HOME/.local/go/bin /usr/local/go/bin $path)
 
 # Rust 
 path=($HOME/.cargo/bin $path)
 
-export PATH
+# local
+path=($HOME/myscripts/bin/ $HOME/.local/bin $path)
+
+export -U PATH
 # PATH }}}
 # Prompt {{{
-#export PS1='%n@%m %1~ %# '
+export PS1='%n@%m %1~ %# '
 # Prompt }}}
 # Other Tools {{{
 # bat
@@ -90,7 +92,7 @@ setopt EXTENDED_GLOB        # Treat `#`, `~`, and `^` as patterns for filename g
 setopt AUTO_CONTINUE
 setopt PROMPT_SUBST
 setopt INTERACTIVE_COMMENTS # Allow comments starting with `#` in the interactive shell.
-setopt NO_CLOBBER           # Disallow `>` to overwrite existing files. Use `>|` or `>!` instead.
+# setopt NO_CLOBBER           # Disallow `>` to overwrite existing files. Use `>|` or `>!` instead.
 setopt LONG_LIST_JOBS       # List jobs in verbose format by default.
 setopt NO_BG_NICE           # Prevent background jobs being given a lower priority.
 setopt NO_CHECK_JOBS        # Prevent status report of jobs on shell exit.
@@ -158,6 +160,25 @@ alias rip='rip --graveyard ~/.local/share/Trash'
 bindkey -e
 # bindkey }}}
 # Functions {{{
+sudo-command-line() {
+    [[ -z $BUFFER ]] && zle up-history
+    [[ $BUFFER != sudo\ * && $UID -ne 0 ]] && {
+      typeset -a bufs
+      bufs=(${(z)BUFFER})
+      while (( $+aliases[$bufs[1]] )); do
+        local expanded=(${(z)aliases[$bufs[1]]})
+        bufs[1,1]=($expanded)
+        if [[ $bufs[1] == $expanded[1] ]]; then
+          break
+        fi
+      done
+      bufs=(sudo $bufs)
+      BUFFER=$bufs
+    }
+    zle end-of-line
+}
+zle -N sudo-command-line
+bindkey "\e\e" sudo-command-line
 # Functions }}}
 # Load Plugins {{{
 . ~/.config/zsh/plugins.zsh
@@ -172,7 +193,7 @@ export CHEAT_USE_FZF=true
 # Cheat }}}
 # pyenv {{{
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH" 
+[[ -d $PYENV_ROOT/bin ]] && export -U PATH="$PYENV_ROOT/bin:$PATH" 
 # eval "$(pyenv init - --no-rehash)"
 # pyenv }}}
 # Load Tools }}}

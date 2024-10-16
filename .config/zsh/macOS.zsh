@@ -29,7 +29,7 @@ path=(/usr/local/opt/qt@5/bin $path)
 # bin_macos
 path=($HOME/myscripts/bin_macos $path)
 
-export PATH
+export -U PATH
 # PATH }}}
 # pyenv {{{
 # export PYENV_ROOT="$HOME/.pyenv"

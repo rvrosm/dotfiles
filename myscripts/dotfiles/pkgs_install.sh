@@ -8,11 +8,10 @@ if  command -v pacman; then
 
     if [[ $1 == "must" ]]; then
 
-	pacman -Syy openssh git vim rsync zsh fzf python python-pipx wireguard-tools shadowsocks-rust ripgrep fd vivid
+	pacman -Syy openssh git vim rsync zsh fzf python python-pipx wireguard-tools shadowsocks-rust ripgrep fd vivid atuin
 
 	exit 0;
     else
-
 
 	# terminal
 	pacman -Sy alacritty tmux tmuxp 
@@ -24,7 +23,7 @@ if  command -v pacman; then
 	pacman -S bfs
 
 	# riir 
-	pacman -S eza bat vivid zoxide
+	pacman -S eza bat zoxide
 
 	# build in golang
 	pacman -S doggo
@@ -41,14 +40,7 @@ if  command -v pacman; then
 	# system management
 	pacman -Sy lsof tcpdump iperf3
 	# fonts
-	pacman -Sy otf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra 
+	# pacman -Sy otf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra 
     fi
 
 fi
-
-if [[ `uname` == "Linux" && grep -q "Ubuntu" /etc/issue ]]; then
-    apt update
-    apt -y upgrade
-fi
-
-sh install_ctags.sh

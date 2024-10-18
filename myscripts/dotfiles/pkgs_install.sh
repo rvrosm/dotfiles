@@ -8,7 +8,7 @@ if  command -v pacman; then
 
     if [[ $1 == "must" ]]; then
 
-	pacman -Syy openssh git vim rsync zsh fzf python python-pipx wireguard-tools shadowsocks-rust ripgrep fd vivid atuin
+	pacman -Syy openssh git vim rsync zsh fzf python python-pipx wireguard-tools shadowsocks-rust ripgrep fd vivid atuin duf
 
 	exit 0;
     else

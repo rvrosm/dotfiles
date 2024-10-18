@@ -9,7 +9,7 @@ zmodload zsh/complist
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' complete-options true
 zstyle ':completion:*' case-insensitive yes
-zstyle ':completion:*' completer _complete _extensions _match _approximate _expand_alias _ignored _files 
+zstyle ':completion:*' completer _complete _extensions _match _approximate _expand_alias _ignored _directories _files 
 
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands
@@ -18,15 +18,18 @@ zstyle ':completion:*' list-suffixes true
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:*:cp:*' file-sort modification
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $HOME/.zsh/cache
+# zstyle ':completion:*' rehash true
+#
+zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:corrections' format $'\e[93m -- %d (errors: %e) --\e[0m'
 zstyle ':completion:*:descriptions' format $'\e[2m -- %d --\e[0m'
 zstyle ':completion:*:warnings' format $'\e[91m -- No Matches Found --\e[0m'
 
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path $HOME/.zsh/cache
-# zstyle ':completion:*' rehash true
-
+zstyle ':completion:*' menu select
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'j' vi-down-line-or-history
@@ -34,7 +37,7 @@ bindkey -M menuselect 'l' vi-forward-char
 # Completion }}}
 # ENVs {{{
 # Basic {{{
-export ZPLUGINS=~/.zsh/plugins
+export _zdir=~/.zsh/plugins
 export EDITOR=vim
 export VISUAL=vim
 export TERM=alacritty
@@ -70,8 +73,6 @@ export -U PATH
 export PS1='%n@%m %1~ %# '
 # Prompt }}}
 # Other Tools {{{
-# bat
-export BAT_THEME=gruvbox-dark
 # Other Tools }}}
 # ENVs }}}
 # setopts {{{
@@ -129,6 +130,9 @@ alias la="ls -a"
 alias ll="ls -ltr"
 alias yd="yt-dlp"
 alias ymp3="yt-dlp -x --audio-format mp3 --audio-quality 0"
+
+# eza
+alias er='eza --icons=auto'
 
 alias au="arc unarchive"
 alias ff="fastfetch"

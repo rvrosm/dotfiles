@@ -1,37 +1,37 @@
+# zcompile-many {{{
+function zcompile-many() {
+  local f
+  for f; do zcompile -R -- "$f".zwc "$f"; done
+}
+# zcompile-many }}}
 # zsh-z {{{
-if [[ ! -e ${ZPLUGINS}/zsh-z/zsh-z.plugin.zsh ]]; then
-    git clone https://github.com/agkozak/zsh-z.git $ZPLUGINS/zsh-z
+if [[ ! -e ${_zdir}/zsh-z/zsh-z.plugin.zsh ]]; then
+    git clone https://github.com/agkozak/zsh-z.git $_zdir/zsh-z
+    zcompile-many ${_zdir}/zsh-z/zsh-z.plugin.zsh
 fi
-source ${ZPLUGINS}/zsh-z/zsh-z.plugin.zsh
 # zsh-z }}}
 # fast-syntax-highlighting {{{
-if [[ ! -e ${ZPLUGINS}/fsh/fast-syntax-highlighting.plugin.zsh ]]; then
-    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${ZPLUGINS}/fsh
+if [[ ! -e ${_zdir}/fsh/fast-syntax-highlighting.plugin.zsh ]]; then
+    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting ${_zdir}/fsh
+    zcompile-many ${_zdir}/fsh/fast-syntax-highlighting.plugin.zsh
 fi
 
-source ${ZPLUGINS}/fsh/fast-syntax-highlighting.plugin.zsh
 # fast-syntax-highlighting }}}
 # zsh-autosuggestions {{{
-if [[ ! -e ${ZPLUGINS}/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZPLUGINS}/zsh-autosuggestions
+if [[ ! -e ${_zdir}/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${_zdir}/zsh-autosuggestions
+    zcompile-many ${_zdir}/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
 fi
 
-source ${ZPLUGINS}/zsh-autosuggestions/zsh-autosuggestions.zsh
 # zsh-autosuggestions }}}
-# pure {{{
-# if [[ ! -e ${ZPLUGINS}/pure ]]; then
-#     git clone https://github.com/sindresorhus/pure.git ${ZPLUGINS}/pure
-# fi
+# Load Plugins {{{
+# Enable the "new" completion system (compsys).
+[[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || zcompile-many ~/.zcompdump
+unfunction zcompile-many
 
-# fpath+=(${ZPLUGINS}/pure)
-# autoload -U promptinit; promptinit
-# prompt pure
-# pure }}}
-# powerlevel10k {{{
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
-# if [[ ! -e ${ZPLUGINS}/powerlevel10k/ ]]; then
-#     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZPLUGINS}/powerlevel10k
-# fi
-
-# source ${ZPLUGINS}/powerlevel10k/powerlevel10k.zsh-theme
-# powerlevel10k }}}
+source ${_zdir}/zsh-z/zsh-z.plugin.zsh
+source ${_zdir}/fsh/fast-syntax-highlighting.plugin.zsh
+source ${_zdir}/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Load Plugins }}}

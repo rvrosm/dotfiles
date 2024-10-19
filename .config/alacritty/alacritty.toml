@@ -1,4 +1,3 @@
-
 [window]
 decorations = "buttonless"
 dynamic_padding = false
@@ -15,22 +14,23 @@ style = "Block"
 
 [font]
 # 15.5 is perfect for monaco. it will make lines almost fit the screen, but it's too small for me
-size = 17.5
+# size = 17.5 # for monaco
+size = 17.5 # for sfmono
 
 [font.bold]
-family = "Monaco Nerd Font"
+family = "SFMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Monaco Nerd Font"
+family = "SFMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Monaco Nerd Font"
+family = "SFMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Monaco Nerd Font"
+family = "SFMono Nerd Font"
 style = "Regular"
 
 [[hints.enabled]]

@@ -6,6 +6,10 @@ export HOMEBREW_FORCE_BREWED_CURL=1
 export WINEPREFIX=$HOME/WINE_Library
 export DXVK_HUD=1
 # ENVs }}}
+# Aliases {{{
+alias fontforge='/Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge'
+alias ffnerd='/Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge -script font-patcher -c '
+# Aliases }}}
 # PATH {{{
 path=(/usr/local/opt/gsed/libexec/gnubin /usr/local/opt/curl/bin /usr/local/opt/gawk/libexec/gnubin /usr/local/opt/iftop/sbin /usr/local/opt/unzip/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/opt/gnu-tar/libexec/gnubin /usr/local/opt/gnu-indent/libexec/gnubin /usr/local/opt/grep/libexec/gnubin /usr/local/opt/make/libexec/gnubin/ /usr/local/opt/libpcap/bin $path)
 
@@ -31,8 +35,3 @@ path=($HOME/myscripts/bin_macos $path)
 
 export -U PATH
 # PATH }}}
-# pyenv {{{
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init - --no-rehash)"
-# pyenv }}}

@@ -76,6 +76,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'            " gc, gc<motion>, gcap
 Plug 'tpope/vim-fugitive'
+Plug 't9md/vim-choosewin'
 
 " }}}
 
@@ -894,5 +895,10 @@ nnoremap <leader>sR <Plug>(sandwich-replace-auto)
 " goyo {{{
 nnoremap <silent> <leader>gy :Goyo<CR>
 " }}}
-
+" choosewin {{{
+nmap - <Plug>(choosewin)
+" if you want to use overlay feature
+let g:choosewin_overlay_enable = 1
+let g:choosewin_statusline_replace = 0
+" choosewin }}}
 " Plugin Configs }}}

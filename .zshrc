@@ -70,7 +70,7 @@ path=($HOME/myscripts/bin/ $HOME/.local/bin $path)
 export -U PATH
 # PATH }}}
 # Prompt {{{
-export PS1='%n@%m %1~ %# '
+export PROMPT='%n@%m %1~ %# '
 # Prompt }}}
 # Other Tools {{{
 # Other Tools }}}

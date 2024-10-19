@@ -10,6 +10,8 @@ alias Ss='systemctl status'
 alias Sdr='systemctl daemon-reload'
 
 alias J=journalctl 
+alias Jxe='journalctl -xe'
+
 alias R=resolvectl
 
 alias yp=yabsnap

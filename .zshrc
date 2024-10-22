@@ -70,7 +70,8 @@ path=($HOME/myscripts/bin/ $HOME/.local/bin $path)
 export -U PATH
 # PATH }}}
 # Prompt {{{
-export PROMPT='%n@%m %1~ %# '
+export PROMPT='%1~ %# '
+export RPROMPT='%n@%m'
 # Prompt }}}
 # Other Tools {{{
 # Other Tools }}}
@@ -159,6 +160,7 @@ alias pipe="pipenv"
 
 # rm - rip
 alias rip='rip --graveyard ~/.local/share/Trash'
+
 # Aliases }}}
 # bindkey {{{
 bindkey -e

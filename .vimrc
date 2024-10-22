@@ -10,7 +10,6 @@ if has("mac")
     Plug 'lyokha/vim-xkbswitch'
 endif
 " }}}
-
 " IDE {{{
 " vim-lsp
 Plug 'prabirshrestha/vim-lsp'
@@ -47,6 +46,9 @@ Plug 'majutsushi/tagbar'
 " debug
 Plug 'puremourning/vimspector'
 
+" janet
+Plug 'bakpakin/janet.vim'
+
 " vim-go {{{
 Plug 'fatih/vim-go'
 " Plug 'AndrewRadev/splitjoin.vim'
@@ -57,7 +59,6 @@ Plug 'vim-python/python-syntax'
 " python }}}
 
 " }}}
-
 " miscs {{{
 
                                        " Plug 'cespare/vim-toml'
@@ -79,7 +80,6 @@ Plug 'tpope/vim-fugitive'
 Plug 't9md/vim-choosewin'
 
 " }}}
-
 " colors {{{
 " Plug 'lifepillar/vim-colortemplate'
 Plug 'connorholyday/vim-snazzy'
@@ -212,7 +212,7 @@ set completepopup=align:menu,border:off,highlight:Pmenu
 set shiftwidth=4 softtabstop=4 noexpandtab " tabstop
 augroup tabstop_settings
     autocmd!
-    autocmd BufNewFile,BufRead *.{y[a]?ml,tmpl,html,vim} setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
+    autocmd BufNewFile,BufRead *.{y[a]?ml,tmpl,html,vim,janet} setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
     autocmd BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup END
@@ -539,7 +539,6 @@ cnoremap <C-E> <END>
 nnoremap <silent> <leader>u guiw
 nnoremap <silent> <leader>U gUiw
 " miscellaneous }}}
-
 " }}}
 " Plugin Configs {{{
 

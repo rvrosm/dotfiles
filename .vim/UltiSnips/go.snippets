@@ -149,8 +149,9 @@ endsnippet
 # if condition
 snippet if "if ... { ... }"
 if ${1:condition} {
-	${0:${VISUAL}}
+	${2:${VISUAL}}
 }
+${0}
 endsnippet
 
 # if initiate condition
@@ -164,8 +165,9 @@ endsnippet
 # else snippet
 snippet el "else { ... }"
 else {
-	${0:${VISUAL}}
+	${1:${VISUAL}}
 }
+${0}
 endsnippet
 
 # if...else... condition
@@ -173,8 +175,9 @@ snippet ie "if ... else ..."
 if ${1:condition} {
 	${2:${VISUAL}}
 } else {
-	${0}
+	${3}
 }
+${0}
 endsnippet
 
 # if...else if ... condition
@@ -182,8 +185,9 @@ snippet iei "if ... else if ..."
 if ${1:condition} {
 	${2:${VISUAL}}
 } else if ${3:condition} {
-	${0}
+	${3}
 }
+${0}
 endsnippet
 
 snippet r "return" b
@@ -209,15 +213,17 @@ endsnippet
 # for range loop
 snippet rk "for v := range items { ... }"
 for ${2:k} := range ${1} {
-	${0:${VISUAL}}
+	${3:${VISUAL}}
 }
+${0}
 endsnippet
 
 # for range loop
 snippet rv "for k, v := range items { ... }"
 for _, ${2:v} := range ${1} {
-	${0:${VISUAL}}
+	${3:${VISUAL}}
 }
+${0}
 endsnippet
 
 # switch
@@ -226,8 +232,9 @@ switch ${1:var} {
 case ${2:value1}:
     ${3}
 default:
-    ${0}
+    ${4}
 }
+${0}
 endsnippet
 
 # map

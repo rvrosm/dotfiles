@@ -31,6 +31,6 @@ fi
 
 # ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 source ${_zdir}/zsh-z/zsh-z.plugin.zsh
-source ${_zdir}/fsh/fast-syntax-highlighting.plugin.zsh
 source ${_zdir}/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${_zdir}/fsh/fast-syntax-highlighting.plugin.zsh
 # Load Plugins }}}

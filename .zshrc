@@ -1,7 +1,7 @@
 # Completion {{{
 # zstyle :compinstall filename "$$HOME/.zshrc"
 fpath=($HOME/.zsh/completion $HOME/.zsh/functions $fpath)
-autoload -Uz compinit; compinit
+autoload -Uz compinit; compinit -C
 
 zmodload zsh/complist
 
@@ -21,7 +21,7 @@ zstyle ':completion:*:*:cp:*' file-sort modification
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $HOME/.zsh/cache
-# zstyle ':completion:*' rehash true
+zstyle ':completion:*' rehash true
 #
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
@@ -166,6 +166,7 @@ alias rip='rip --graveyard ~/.local/share/Trash'
 bindkey -e
 # bindkey }}}
 # Functions {{{
+ 
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
     [[ $BUFFER != sudo\ * && $UID -ne 0 ]] && {
@@ -185,9 +186,10 @@ sudo-command-line() {
 }
 zle -N sudo-command-line
 bindkey "\e\e" sudo-command-line
+
 # Functions }}}
 # Load Plugins {{{
-. ~/.config/zsh/plugins.zsh
+source ~/.config/zsh/plugins.zsh
 # Load Plugins }}}
 # Load Tools {{{
 # fzf {{{
@@ -205,9 +207,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 # Load Tools }}}
 # ostype {{{
 if [[ `uname` == "Linux" ]]; then
-    [ -f  $HOME/.config/zsh/linux.zsh ] && . $HOME/.config/zsh/linux.zsh
+    [[ -f  $HOME/.config/zsh/linux.zsh ]] && source $HOME/.config/zsh/linux.zsh
 else
-    [ -f $HOME/.config/zsh/macOS.zsh ] && . $HOME/.config/zsh/macOS.zsh
+    [[ -f $HOME/.config/zsh/macOS.zsh ]] && source $HOME/.config/zsh/macOS.zsh
 fi
 
 [[ -f $HOME/.config/zsh/local.zshrc ]] && source $HOME/.config/zsh/local.zshrc

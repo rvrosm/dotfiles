@@ -1,7 +1,7 @@
 # Completion {{{
 # zstyle :compinstall filename "$$HOME/.zshrc"
 fpath=($HOME/.zsh/completion $HOME/.zsh/functions $fpath)
-autoload -Uz compinit; compinit -C
+autoload -Uz compinit; compinit 
 
 zmodload zsh/complist
 
@@ -141,6 +141,9 @@ alias fe="fastfetch -c $HOME/.config/fastfetch/neofetch.jsonc"
 alias hf=hyperfine
 
 alias bat="bat --color=always"
+
+# podman
+alias pdm=podman
 
 # docker
 alias dp="docker compose"

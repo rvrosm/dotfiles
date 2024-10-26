@@ -35,7 +35,7 @@ if  command -v pacman; then
 	pacman -Sy base-devel linux-headers go rust nodejs 
 
 	# networks wifi wireguard
-	pacman -Sy iw iwd systemd-resolvconf 
+	pacman -Sy iw iwd systemd-resolvconf ethtool
 
 	# system management
 	pacman -Sy lsof tcpdump iperf3

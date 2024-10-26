@@ -144,14 +144,15 @@ alias bat="bat --color=always"
 
 # podman
 alias pdm=podman
+alias pdc=podman-compose
 
 # docker
-alias dp="docker compose"
-alias di="docker image"
-alias dis="docker images"
-alias dc="docker container"
-alias dr='docker run --detach-keys="ctrl-z,ctrl-q"'
-alias dx='docker container exec --detach-keys="ctrl-z,ctrl-q" -it'
+# alias dp="docker compose"
+# alias di="docker image"
+# alias dis="docker images"
+# alias dc="docker container"
+# alias dr='docker run --detach-keys="ctrl-z,ctrl-q"'
+# alias dx='docker container exec --detach-keys="ctrl-z,ctrl-q" -it'
 
 # duf
 alias ds="duf --only local"

@@ -100,8 +100,8 @@ alias ymp3="yt-dlp -x --audio-format mp3 --audio-quality 0"
 alias er='eza --icons=auto'
 
 alias au="arc unarchive"
-alias ff='fastfetch --host-key "Hardware" --host-format "Make Laptop Great Again"'
-alias fe='fastfetch -c $HOME/.config/fastfetch/neofetch.jsonc --host-key "Hardware" --host-format "Make Laptop Great Again"'
+alias ff="fastfetch"
+alias fe="fastfetch -c $HOME/.config/fastfetch/neofetch.jsonc"
 alias hf=hyperfine
 
 alias bat="bat --color=always"

@@ -111,6 +111,8 @@ alias pod=podman
 alias podt=podman-tui
 alias pcmp="podman-compose"
 
+alias podcl='podman container ls'
+
 # docker
 # alias dp="docker compose"
 # alias di="docker image"

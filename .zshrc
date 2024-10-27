@@ -108,8 +108,8 @@ alias bat="bat --color=always"
 
 # podman
 alias pod=podman
-alias podc="podman-compose --env-file=.env"
 alias podt=podman-tui
+alias pcmp="podman-compose"
 
 # docker
 # alias dp="docker compose"

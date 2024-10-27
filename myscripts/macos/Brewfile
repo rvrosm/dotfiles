@@ -20,6 +20,12 @@ brew "tmuxp"
 # new tools
 brew "bfs"
 
+# podman
+brew "podman"
+brew "podman-compose"
+brew "podman-tui"
+cask "podman-desktop"
+
 # go
 brew "lf"
 brew "fzf"

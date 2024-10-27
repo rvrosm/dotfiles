@@ -1,43 +1,7 @@
-# Completion {{{
-# zstyle :compinstall filename "$$HOME/.zshrc"
-fpath=($HOME/.zsh/completion $HOME/.zsh/functions $fpath)
-autoload -Uz compinit; compinit 
-
-zmodload zsh/complist
-
-# :completion:<function>:<completer>:<command>:<argument>:<tag>
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' complete-options true
-zstyle ':completion:*' case-insensitive yes
-zstyle ':completion:*' completer _complete _extensions _match _approximate _expand_alias _ignored _directories _files 
-
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands
-zstyle ':completion:*' list-suffixes true
-
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*:*:cp:*' file-sort modification
-
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path $HOME/.zsh/cache
-zstyle ':completion:*' rehash true
-#
-zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-zstyle ':completion:*:corrections' format $'\e[93m -- %d (errors: %e) --\e[0m'
-zstyle ':completion:*:descriptions' format $'\e[2m -- %d --\e[0m'
-zstyle ':completion:*:warnings' format $'\e[91m -- No Matches Found --\e[0m'
-
-zstyle ':completion:*' menu select
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-# Completion }}}
 # ENVs {{{
 # Basic {{{
-export _zdir=~/.zsh/plugins
+export _zdir=$HOME/.zsh
+export _zplugs=$_zdir/plugins
 export EDITOR=vim
 export VISUAL=vim
 export TERM=alacritty
@@ -143,8 +107,9 @@ alias hf=hyperfine
 alias bat="bat --color=always"
 
 # podman
-alias pdm=podman
-alias pdc=podman-compose
+alias podm=podman
+alias podc="podman-compose --env-file=.env"
+alias podt=podman-tui
 
 # docker
 # alias dp="docker compose"
@@ -169,6 +134,43 @@ alias rip='rip --graveyard ~/.local/share/Trash'
 # bindkey {{{
 bindkey -e
 # bindkey }}}
+# Completion {{{
+# zstyle :compinstall filename "$$HOME/.zshrc"
+fpath=($_zdir/completion $_zdir/functions $fpath)
+autoload -Uz compinit; compinit 
+
+zmodload zsh/complist
+
+# :completion:<function>:<completer>:<command>:<argument>:<tag>
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' complete-options true
+zstyle ':completion:*' case-insensitive yes
+zstyle ':completion:*' completer _complete _extensions _match _approximate _expand_alias _ignored _directories _files 
+
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:*:-command-:*:*' group-order alias builtins functions commands
+zstyle ':completion:*' list-suffixes true
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*:*:cp:*' file-sort modification
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $HOME/.zsh/cache
+zstyle ':completion:*' rehash true
+#
+zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:corrections' format $'\e[93m -- %d (errors: %e) --\e[0m'
+zstyle ':completion:*:descriptions' format $'\e[2m -- %d --\e[0m'
+zstyle ':completion:*:warnings' format $'\e[91m -- No Matches Found --\e[0m'
+
+zstyle ':completion:*' menu select
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+# Completion }}}
 # Functions {{{
  
 sudo-command-line() {

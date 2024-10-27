@@ -212,7 +212,7 @@ set completepopup=align:menu,border:off,highlight:Pmenu
 set shiftwidth=4 softtabstop=4 noexpandtab " tabstop
 augroup tabstop_settings
     autocmd!
-    autocmd BufNewFile,BufRead *.{y[a]?ml,tmpl,html,vim,janet} setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
+    autocmd BufNewFile,BufRead *.{y[a]?ml,tmpl,html,vim,janet,conf} setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
     autocmd BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup END

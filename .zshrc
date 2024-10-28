@@ -75,12 +75,37 @@ setopt NOFLOWCONTROL
 # Aliases {{{
 # dotfiles
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+# git {{{
 
-# git
 alias Gc='git clone'
 alias Gm='git commit'
 alias Gp='git push'
 alias Gl='git pull'
+# git }}}
+# podman {{{
+
+alias pod=podman
+
+alias podr='podman run'
+
+alias podp='podman pull'
+
+alias pcl='podman container ls'
+
+alias podn='podman network'
+alias pnl='podman network ls'
+alias pode='podman exec -it'
+# podman }}}
+# docker {{{
+
+# alias dp="docker compose"
+# alias di="docker image"
+# alias dis="docker images"
+# alias dc="docker container"
+# alias dr='docker run --detach-keys="ctrl-z,ctrl-q"'
+# alias dx='docker container exec --detach-keys="ctrl-z,ctrl-q" -it'
+# docker }}}
+# asorted {{{
 
 alias up=uptime
 alias un=uname
@@ -106,21 +131,6 @@ alias hf=hyperfine
 
 alias bat="bat --color=always"
 
-# podman
-alias pod=podman
-alias podt=podman-tui
-alias pcmp="podman-compose"
-
-alias pcl='podman container ls'
-
-# docker
-# alias dp="docker compose"
-# alias di="docker image"
-# alias dis="docker images"
-# alias dc="docker container"
-# alias dr='docker run --detach-keys="ctrl-z,ctrl-q"'
-# alias dx='docker container exec --detach-keys="ctrl-z,ctrl-q" -it'
-
 # duf
 alias ds="duf --only local"
 
@@ -132,6 +142,8 @@ alias pipe="pipenv"
 # rm - rip
 alias rip='rip --graveyard ~/.local/share/Trash'
 
+
+# asorted }}}
 # Aliases }}}
 # bindkey {{{
 bindkey -e

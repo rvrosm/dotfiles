@@ -79,12 +79,11 @@ import = [
 
 [colors.cursor]
 cursor     = "#29A63E"
-text       = "#dedede"
+text       = "#eff0eb"
 
-# [colors.primary]
-# background = "#000000"
-# # hsl(45,15,65)
-# foreground = "#8AE62E"
+[colors.primary]
+background = "#000000"
+foreground = "#eff0eb"
 
 # [colors.normal]
 # black      = "0x000000"

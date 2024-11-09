@@ -331,11 +331,13 @@ vnoremap <leader>R c<C-O>:set revins<CR><C-R>"<Esc>:set norevins<CR>
 " true black
 " hsl(0, 0%, 50.2%) = #808080
 " hsl(45,15,65)
-nnoremap <leader>oo :hi Normal guibg='#000000' guifg='#A6A08D'<cr>
+nnoremap <leader>o1 :hi Normal guibg='#000000' guifg='#A6A08D'<cr>
 " hsl(0, 0%, 60%) = #999999
-nnoremap <leader>oa :hi Normal guibg='#0c0c0c' guifg='#999999'<cr>
+nnoremap <leader>o2 :hi Normal guibg='#0c0c0c' guifg='#999999'<cr>
 " hsl(0, 0%, 70%) = #b3b3b3
-nnoremap <leader>ob :hi Normal guibg='#1c1c1c' guifg='#b3b3b3'<cr>
+nnoremap <leader>o3 :hi Normal guibg='#1c1c1c' guifg='#b3b3b3'<cr>
+" snazzy foreground
+nnoremap <leader>oo :hi Normal guibg='#000000' guifg='#eff0eb'<cr>
 
 nnoremap <silent> <silent> <leader>oh :noh<CR>
 nnoremap <silent> <silent> <leader>L :redraw<CR>

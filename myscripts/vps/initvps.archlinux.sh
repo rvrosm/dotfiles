@@ -13,11 +13,11 @@ ssh_pubkey='ssh-rsa AAAAB3NzaC1yc2EAAAABIwAABAEAwnBemzbCjtnyKLImE7gnqoVRW9HrJHRN
 
 # update system
 pacman -Syu
-pacman -S --needed vim sudo git base-devel lsof nftables tcpdump tree
+pacman -S --needed vim sudo git base-devel lsof nftables tcpdump tree zsh rsync
 pacman -S --needed caddy wireguard-tools shadowsocks-rust
 
 # create user
-useradd -ms /usr/bin/fish ${username}
+useradd -ms /usr/bin/zsh ${username}
 echo "${username}:${password}" | chpasswd
 
 # config sudoers

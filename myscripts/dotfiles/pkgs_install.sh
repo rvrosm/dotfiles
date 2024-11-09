@@ -38,7 +38,8 @@ if  command -v pacman; then
 	pacman -Sy iw iwd systemd-resolvconf ethtool
 
 	# system management
-	pacman -Sy lsof tcpdump iperf3
+	pacman -Sy lsof tcpdump iperf3 iotop
+
 	# fonts
 	# pacman -Sy otf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra 
     fi

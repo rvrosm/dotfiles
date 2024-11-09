@@ -123,6 +123,7 @@ alias ymp3="yt-dlp -x --audio-format mp3 --audio-quality 0"
 
 # eza
 alias er='eza --icons=auto'
+alias btm='btm --process_memory_as_value -g'
 
 alias au="arc unarchive"
 alias ff="fastfetch"

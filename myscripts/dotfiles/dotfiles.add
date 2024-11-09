@@ -9,8 +9,16 @@ dotfiles add $HOME/.gitignore
 
 dotfiles add $HOME/myscripts/
 
-# Linux
-dotfiles add $HOME/.dotfiles_linux/
+# Linux {{{
+dotfiles add $HOME/.Xdefaults
+# sway {{{
+dotfiles add $HOME/.config/sway/config
+
+# sway }}}
+# fontconfig {{{
+dotfiles add $HOME/.config/fontconfig/fonts.conf
+# fontconfig }}}
+# Linux }}}
 
 # alcaritty
 # dotfiles add $HOME/.config/alacritty/alacritty.yml

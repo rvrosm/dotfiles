@@ -1,10 +1,6 @@
 # ENVs {{{
 # homebrew
 export HOMEBREW_FORCE_BREWED_CURL=1
-
-# wine
-export WINEPREFIX=$HOME/WINE_Library
-export DXVK_HUD=1
 # ENVs }}}
 # Aliases {{{
 alias fontforge='/Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge'

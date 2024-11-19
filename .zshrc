@@ -148,6 +148,7 @@ alias rip='rip --graveyard ~/.local/share/Trash'
 # Aliases }}}
 # bindkey {{{
 bindkey -e
+# bindkey -v
 # bindkey }}}
 # Completion {{{
 # zstyle :compinstall filename "$$HOME/.zshrc"

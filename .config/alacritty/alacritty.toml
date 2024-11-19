@@ -83,7 +83,11 @@ text       = "#eff0eb"
 
 [colors.primary]
 background = "#000000"
-foreground = "#eff0eb"
+foreground = "#D8D8B3" # light beige
+# foreground = "#F5F5DC" # soft ivory
+# foreground = "#D8E6E0" # pale mint
+# foreground = "#D3D3D3" # light grey
+# foreground = "#FAFAD2" # warm white
 
 # [colors.normal]
 # black      = "0x000000"

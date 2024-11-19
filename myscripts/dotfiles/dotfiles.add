@@ -11,6 +11,7 @@ dotfiles add $HOME/myscripts/
 
 # Linux {{{
 dotfiles add $HOME/.Xdefaults
+
 # sway {{{
 dotfiles add $HOME/.config/sway/config
 
@@ -67,9 +68,6 @@ dotfiles add $HOME/.npmrc
 # dotfiles add $HOME/Library/Rime/squirrel.custom.yaml
 # dotfiles add $HOME/Library/Rime/zhengma.dict.yaml
 # dotfiles add $HOME/Library/Rime/zhengma.schema.yaml
-
-# X11 for xQuartz
-dotfiles add $HOME/.Xresources
 
 # sioyek
 dotfiles add $HOME/.config/sioyek/keys_user.config

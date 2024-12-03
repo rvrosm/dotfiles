@@ -10,24 +10,21 @@ if has("mac")
     Plug 'lyokha/vim-xkbswitch'
 endif
 " }}}
-" auto-completion & lsp {{{
-Plug 'yegappan/lsp'
-Plug 'girishji/vimcomplete'
-" auto-completion & lsp }}}
 " IDE {{{
 " vim-lsp
-" Plug 'prabirshrestha/vim-lsp'
-" Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 " auto complete
-" Plug 'prabirshrestha/asyncomplete.vim'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
-" Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-" Plug 'prabirshrestha/asyncomplete-file.vim'
-" Plug 'prabirshrestha/asyncomplete-buffer.vim'
-" Plug 'hiterm/asyncomplete-look'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'hiterm/asyncomplete-look'
 " make comple slow
 " Plug 'yami-beta/asyncomplete-omni.vim'
+"
 " ale lint
 " Plug 'dense-analysis/ale'
 " auto complete tag 
@@ -546,39 +543,9 @@ nnoremap <silent> <leader>U gUiw
 " miscellaneous }}}
 " }}}
 " Plugin Configs {{{
-" auto-completion & lsp {{{
-" Go language server
-let lspServers =  [#{
-	\    name: 'golang',
-	\    filetype: ['go', 'gomod'],
-	\    path: expand('$HOME/go/bin/gopls'),
-	\    args: ['serve'],
-	\    syncInit: v:true
-	\  }]
 
+" IDE {{{
 
-
-function! LspKeys() abort
-    nnoremap <buffer> gd  :LspGotoDefinition<cr>
-    nnoremap <buffer> gD  :LspGotoDeclaration<cr>
-    nnoremap <buffer> gi  :LspGotoImpl<cr>
-    nnoremap <buffer> [d  :LspDiag prev<cr>
-    nnoremap <buffer> ]d  :LspDiag next<cr>
-    nnoremap <buffer> [D  :LspDiag first<cr>
-    nnoremap <buffer> ]D  :LspDiag last<cr>
-    nnoremap <buffer> gR  :LspRename<cr>
-    nnoremap <buffer> K   :LspHover<cr>
-    nnoremap <buffer> <leader>gs  :LspServer show status<cr>
-endfunction
-
-augroup lsp
-    au!
-    autocmd User LspSetup call LspAddServer(lspServers)
-    autocmd User LspAttached call LspKeys()
-    autocmd BufWritePre *.go :LspFormat<cr>
-augroup END
-
-" auto-completion & lsp }}}
 " asynccomplete auto complete {{{
 " this option set to 1 will set noselect 
 let g:asyncomplete_auto_completeopt = 0
@@ -882,6 +849,8 @@ let g:vimspector_bottombar_height = 5
 " nnoremap gsd <Plug>VimspectorDownFrame
 " nnoremap gsh <Plug>VimspectorRunToCursor
 " debug vimspector }}}
+
+" IDE }}}
 " vim-xkbswitch {{{
 " Must Use Input Source Switcher.
 if has("mac")

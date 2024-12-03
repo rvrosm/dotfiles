@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 
 usage() {                                 # Function: Print a help message.
-  echo "Usage: $0 [ -d device ] [-t wav|mp3] [ -b ] [-c dir]" 1>&2 
+  echo "Usage: $0 [ -d device ] [-t wav|data] [ -b ] [-c dir]" 1>&2 
   echo "-b			blank"
   echo "-e			eject"
   echo "-t wav|data		audio type"
@@ -15,7 +15,7 @@ if [[ ${#} -eq 0 ]]; then
 fi
 
 
-device=""
+device="1,0,0"
 blank='false'
 audiotype="wav"
 targetdir=""

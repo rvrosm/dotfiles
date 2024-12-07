@@ -1,51 +1,52 @@
 #!/usr/bin/env bash
 #
 # archlinux
-if  command -v pacman; then
+if  ! command -v pacman; then
+    exit 1;
+fi
 
-    # update system
+if [[ $1 == "update" ]]; then
     pacman -Syy archlinux-keyring && pacman -Syyu
 
-    if [[ $1 == "must" ]]; then
+elif [[ $1 == "must" ]]; then
 
-	pacman -Syy base-devel git curl rsync wget screen zip unzip vim man net-tools dnsutils openssh zsh fzf python python-pipx wireguard-tools shadowsocks-rust ripgrep fd vivid atuin duf eza
+    pacman -Syy base-devel git curl rsync wget screen zip unzip vim man net-tools dnsutils openssh zsh fzf python python-pipx wireguard-tools shadowsocks-rust ripgrep fd vivid atuin duf eza
 
-	exit 0;
-    elif [[ $1 == "gui" ]]; then
 
-	pacman -Sy firefox mpv
+elif [[ $1 == "gui" ]]; then
 
-    else
+    pacman -Sy firefox mpv
 
-	# terminal
-	pacman -Sy alacritty tmux tmuxp 
+elif [[ $1 == "others" ]]; then
 
-	# utilities
-	pacman -Sy bc gnupg unzip usbutils tree jq dnsutils
 
-	# new tools
-	pacman -S bfs
+    # terminal
+    pacman -Sy alacritty tmux tmuxp 
 
-	# riir 
-	pacman -S bat zoxide
+    # utilities
+    pacman -Sy bc gnupg unzip usbutils tree jq dnsutils
 
-	# build in golang
-	pacman -S doggo
+    # new tools
+    pacman -S bfs
 
-	# multimedia tools
-	pacman -Sy mp3wrap mp3splt mediainfo imagemagick 
+    # riir 
+    pacman -S bat zoxide
 
-	# devel
-	pacman -Sy base-devel linux-headers go rust nodejs 
+    # build in golang
+    pacman -S doggo
 
-	# networks wifi wireguard
-	pacman -Sy iw iwd systemd-resolvconf ethtool
+    # multimedia tools
+    pacman -Sy mp3wrap mp3splt mediainfo imagemagick 
 
-	# system management
-	pacman -Sy lsof tcpdump iperf3 iotop
+    # devel
+    pacman -Sy base-devel linux-headers go rust nodejs 
 
-	# fonts
-	# pacman -Sy otf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra 
-    fi
+    # networks wifi wireguard
+    pacman -Sy iw iwd systemd-resolvconf ethtool
 
+    # system management
+    pacman -Sy lsof tcpdump iperf3 iotop
+
+    # fonts
+    # pacman -Sy otf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra 
 fi

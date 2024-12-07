@@ -8,6 +8,7 @@ if [  -f activated.txt ]; then
 fi
 
 # install packages
+./pkgs_install.sh update
 ./pkgs_install.sh must
 
 zsh

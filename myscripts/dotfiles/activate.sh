@@ -2,21 +2,23 @@
 #
 cd ~/myscripts/dotfiles
 
-# install packages
-if [ ! -f activated.txt ]; then
-sh pkgs_install.sh must
+if [  -f activated.txt ]; then
+    echo already did this;
+    exit 1;
 fi
 
-echo install vim-plug
-pipx install debugpy python-lsp-server
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# install packages
+./pkgs_install.sh must
 
-echo install vim plugins
-vim -es -u ~/.vimrc -i NONE -c "PlugInstall | qa"
+zsh
+
+./init_vim.sh
+
+
+if [[ `uname` == "Linux" ]]; then
+
+    RIME_DIR="~/.local/share/fcitx5/rime"
+    mkdir -p  "${RIME_DIR}" && rsync -av ~/myscripts/Rime/ "${RIME_DIR}"
+fi
 
 date > activated.txt
-
-if [[ `uname` == 'Linux' ]]; then
-    . rsync_dotfiles_linux.sh
-fi

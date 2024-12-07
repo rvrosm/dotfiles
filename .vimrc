@@ -75,7 +75,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-sandwich'
-Plug 'tpope/vim-commentary'            " gc, gc<motion>, gcap
+" Plug 'tpope/vim-commentary'            " gc, gc<motion>, gcap
 Plug 'tpope/vim-fugitive'
 Plug 't9md/vim-choosewin'
 
@@ -113,7 +113,7 @@ Plug 'connorholyday/vim-snazzy'
 call plug#end()
 " vim-plug Plugins }}}
 " packadd {{{
-" packadd! comment
+packadd! comment
 " packadd }}}
 " Settings {{{
 

@@ -6,7 +6,7 @@
 
 # On New System
 
-1. `curl https://raw.githubusercontent.com/rvrosm/dotfiles/refs/heads/master/myscripts/dotfiles/init.sh | sh`
+1. `curl https://raw.githubusercontent.com/rvrosm/dotfiles/refs/heads/master/myscripts/dotfiles/init.sh | bash`
 2. `sh myscripts/dotfiles/activate.sh`
 
 # Add Remote Git

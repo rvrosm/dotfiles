@@ -540,6 +540,9 @@ cnoremap <C-E> <END>
 " miscellaneous {{{
 nnoremap <silent> <leader>u guiw
 nnoremap <silent> <leader>U gUiw
+
+
+nmap  <leader>T <Plug>Transposewords
 " miscellaneous }}}
 " }}}
 " Plugin Configs {{{

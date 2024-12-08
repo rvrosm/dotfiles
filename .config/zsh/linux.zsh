@@ -26,5 +26,5 @@ alias Pq='pacman -Q'
 alias Pc='pacman -Syc'
 
 alias nlr='nft list ruleset'
-alias nff='nft list ruleset'
+alias nfr='nft flush ruleset'
 # Aliases }}}

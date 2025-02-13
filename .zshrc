@@ -224,6 +224,7 @@ export CHEAT_USE_FZF=true
 # pyenv {{{
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export -U PATH="$PYENV_ROOT/bin:$PATH" 
+# I'd like to exec this cmd manually
 # eval "$(pyenv init - --no-rehash)"
 # pyenv }}}
 # Load Tools }}}

@@ -206,6 +206,11 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
+    bindsym $mod+Shift+s exec 'grim screenshot.png'
+    # Take a screenshot of a part of the screen
+    bindsym $mod+Shift+d exec 'slurp | grim -g - screenshot.png'
+    bindsym $mod+Shift+v exec 'wf-recorder -f recording.mp4'
+
 
 #
 # Status Bar:

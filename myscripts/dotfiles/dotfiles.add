@@ -21,6 +21,9 @@ dotfiles add $HOME/.config/fontconfig/fonts.conf
 # fontconfig }}}
 # Linux }}}
 
+# ghostty
+dotfiles add $HOME/.config/ghostty/config
+
 # alcaritty
 # dotfiles add $HOME/.config/alacritty/alacritty.yml
 dotfiles add $HOME/.config/alacritty/alacritty.toml

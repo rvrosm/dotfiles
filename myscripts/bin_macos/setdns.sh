@@ -5,6 +5,11 @@ if [ $# -eq 0 ]; then
     exit 1;
 fi
 
+if [ "$1" = "empty" ]; then
+sudo networksetup -setdnsservers Wi-Fi empty
+fi
+
+
 if [ "$1" = "router" ]; then
 sudo networksetup -setdnsservers Wi-Fi empty
 sudo networksetup -setdnsservers Wi-Fi 192.168.89.64

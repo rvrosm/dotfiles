@@ -6,7 +6,7 @@ windows:
       - cd ~
     panes:
       - shell_command:
-        - tor
+        - arti proxy
       - shell_command:
         - cd ~/ss/ 
         - sslocal -vc bv.json
@@ -16,3 +16,8 @@ windows:
       - shell_command:
         - cd ~/ss/ 
         - sslocal -vc rack.json
+  - window_name: blocky
+    panes:
+      - shell_command:
+        - cd ~/.config/blocky
+        - blocky

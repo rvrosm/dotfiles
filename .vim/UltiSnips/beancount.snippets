@@ -1,0 +1,104 @@
+snippet d "date" b
+`!v strftime("%Y-%m-%d")` ${0}
+endsnippet
+
+snippet O "OtherIncome"
+Income:OtherIncome
+endsnippet
+
+snippet D "Target Discounts"
+Expenses:US:Target:Reloadable:Discounts -${1} USD
+endsnippet
+
+
+snippet B "Bags"
+Expenses:Groceries:PlasticBags 0.1 USD
+endsnippet
+
+snippet U "USD"
+USD
+endsnippet
+
+
+snippet * "tx" b
+${1:`!v strftime("%Y-%m-%d")`} * "${2:Payee}" "${3:Narration}"
+  ${0}
+endsnippet
+
+snippet gas "gas" b
+${1:`!v strftime("%Y-%m-%d")`} * "${2:Costco}" "Gas"
+  Expenses:Transportation:Gas USD
+  ${3:Liabilities:US:Fidelity:CreditCard:Fidelity}
+endsnippet
+
+
+snippet to "Expenses:Dining:Restaurants:Takeout" b
+${1:`!v strftime("%Y-%m-%d")`} * "${2:Payee}" "${3:Narration}"
+  Expenses:FoodAndDrink:Restaurants:Takeout ${4}
+  ${5:Assets:Cash}
+${0}
+endsnippet
+
+snippet fd "Expenses:Dining:Restaurants" b
+${1:`!v strftime("%Y-%m-%d")`} * "${2:Payee}" "${3:Narration}"
+  Expenses:FoodAndDrink:${4:Restaurants} ${5:1.00} USD
+  ${6:Assets:Cash}
+${0}
+endsnippet
+
+snippet co "Expenses:FoodAndDrink:Coffee" b
+${1:`!v strftime("%Y-%m-%d")`} * "${2:Starbucks}" "${3:Starbucks}"
+  Expenses:FoodAndDrink:Coffee ${5:1.00} USD
+  ${6:Assets:Cash}
+${0}
+endsnippet
+
+
+snippet h "Expenses:Housing" b
+${1:`!v strftime("%Y-%m-%d")`} * "${2:Payee}" "${3:Narration}"
+  Expenses:Housing:${4:TemporaryShelter} ${5:1.00} USD
+  ${6:Assets:Cash}
+${0}
+endsnippet
+
+snippet C "Cash" b
+Assets:Cash ${0}
+endsnippet
+
+snippet S "SalesTax" b
+Expenses:Taxes:SalesTax ${0} USD
+endsnippet
+
+
+
+
+
+snippet E "Expenses" b
+${1:`!v strftime("%Y-%m-%d")`} * "${2:Payee}" "${3:Narration}"
+  Expenses:${4:xxx} ${5:1.00} USD
+  Assets:${6:Cash}
+${0}
+endsnippet
+
+snippet l "location" b
+${1:`!v strftime("%Y-%m-%d")`} event "location" "${2:Paris, France}"
+endsnippet
+
+
+snippet p "pad" b
+`!v strftime("%Y-%m-%d")` pad ${1:Account} ${2:Equity:Opening-Balances}
+${0}
+endsnippet
+
+snippet b "balance" b
+`!v strftime("%Y-%m-%d")` balance ${1:Account} ${2:Amount} ${3:USD}
+${0}
+endsnippet
+
+
+snippet o "open" b
+`!v strftime("%Y-%m-%d")` open ${1:Account} ${2:USD}
+endsnippet
+
+
+

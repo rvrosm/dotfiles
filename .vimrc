@@ -862,7 +862,7 @@ g:tagbar_type_go = {
 }
 
 autocmd! BufWritePost *.go silent! !gotags -R -f tags . 2>&1 &
-autocmd! BufWritePost *.beancount silent! !ctags --options=beancount.ctags -R . 2>&1 &
+autocmd! BufWritePost *.beancount silent! !ctags --options=beancount.ctags -R --exclude=.git --exclude=.venv . 2>&1 &
 
 # }}}
 # emmet-vim {{{

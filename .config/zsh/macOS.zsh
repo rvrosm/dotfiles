@@ -7,7 +7,7 @@ alias fontforge='/Applications/FontForge.app/Contents/Resources/opt/local/bin/fo
 alias ffnerd='/Applications/FontForge.app/Contents/Resources/opt/local/bin/fontforge -script font-patcher -c '
 # Aliases }}}
 # PATH {{{
-path=(/usr/local/opt/gsed/libexec/gnubin /usr/local/opt/curl/bin /usr/local/opt/gawk/libexec/gnubin /usr/local/opt/iftop/sbin /usr/local/opt/unzip/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/opt/gnu-tar/libexec/gnubin /usr/local/opt/gnu-indent/libexec/gnubin /usr/local/opt/grep/libexec/gnubin /usr/local/opt/make/libexec/gnubin/ /usr/local/opt/libpcap/bin $path)
+path=(/usr/local/opt/curl/bin /usr/local/opt/gsed/libexec/gnubin /usr/local/opt/curl/bin /usr/local/opt/gawk/libexec/gnubin /usr/local/opt/iftop/sbin /usr/local/opt/unzip/bin /usr/local/opt/coreutils/libexec/gnubin /usr/local/opt/findutils/libexec/gnubin /usr/local/opt/gnu-tar/libexec/gnubin /usr/local/opt/gnu-indent/libexec/gnubin /usr/local/opt/grep/libexec/gnubin /usr/local/opt/make/libexec/gnubin/ /usr/local/opt/libpcap/bin $path)
 
 path=(/usr/local/opt/openjdk/bin $path)
 

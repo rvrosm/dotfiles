@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $# -eq 0 ]; then
-    echo "Usage:`basename ${0}` router|lo|show|search"
+    echo "Usage:`basename ${0}` router|lo|show|search|empty"
     exit 1;
 fi
 
@@ -12,7 +12,7 @@ fi
 
 if [ "$1" = "router" ]; then
 sudo networksetup -setdnsservers Wi-Fi empty
-sudo networksetup -setdnsservers Wi-Fi 192.168.89.64
+sudo networksetup -setdnsservers Wi-Fi $2
 fi
 
 if [ "$1" = "lo" ]; then

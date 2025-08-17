@@ -145,6 +145,9 @@ alias rip='rip --graveyard ~/.local/share/Trash'
 
 
 # asorted }}}
+# uv {{{
+alias upi='uv pip install'
+# uv }}}
 # Aliases }}}
 # bindkey {{{
 bindkey -e

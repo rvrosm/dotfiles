@@ -6,13 +6,29 @@ snippet l "location" b
 ${1:`!v strftime("%Y-%m-%d")`} event "location" "${2:Paris, France}"
 endsnippet
 
-snippet R "AccountsReceivable"
+snippet aar "AccountsReceivable"
 Assets:AccountsReceivable ${1} USD
+endsnippet
+
+
+
+snippet lr "Liabilities:Refund"
+Liabilities:Refund 
 endsnippet
 
 snippet T "Tips"
 Expenses:Services:Tips ${1} USD
 endsnippet
+
+snippet tl "Tools"
+Expenses:Tools ${1} USD
+endsnippet
+
+
+snippet ic "Icecream"
+Expenses:Food:Icecream ${1} USD
+endsnippet
+
 
 snippet fm "Milk" b
 Expenses:Food:Milk ${1:1.5} GALMILK {{ ${2:12.99} USD }}

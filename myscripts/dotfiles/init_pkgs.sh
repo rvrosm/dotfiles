@@ -5,12 +5,14 @@ if  ! command -v pacman; then
     exit 1;
 fi
 
-case $1 in
-    "update")
+case "$1" in
+    update)
 	pacman -Syy archlinux-keyring && pacman -Syyu
-    "gui")
+	;;
+    gui)
 	pacman -Sy firefox mpv
-    "others")
+	;;
+    others)
 	# terminal
 	pacman -Sy tmux tmuxp 
 	# new tools
@@ -29,6 +31,8 @@ case $1 in
 	pacman -Sy lsof tcpdump iperf3 iotop
 	# fonts
 	# pacman -Sy otf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra 
+	;;
     *)
 	pacman -Syy base-devel git curl rsync wget screen zip unzip vim man net-tools openssh zsh fzf python wireguard-tools shadowsocks-rust ripgrep fd vivid atuin duf eza bc gnupg unzip usbutils tree jq dnsutils
+	;;
 esac

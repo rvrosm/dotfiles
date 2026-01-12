@@ -10,6 +10,14 @@ if ! command -v rsync; then
 	exit 2;
 fi
 
+# Define the directory path
+TARGET="~/.dotfiles"
+# Check if the directory exists
+if [ -d "$TARGET" ]; then
+    echo "Error: Directory '$TARGET' already exists." >&2
+    exit 1
+fi
+
 # First step
 git clone --bare https://github.com/rvrosm/dotfiles.git ~/.dotfiles
 
@@ -28,12 +36,12 @@ dotfiles checkout
 
 if [ $? = 0 ]; then
     echo "Checked out config.";
+    dotfiles config status.showUntrackedFiles no
 else
-    echo "Backing up pre-existing dot files.";
-    dotfiles checkout 2>&1 | awk '/^\s+/ { print $1}' | xargs -I{} rsync -avR --remove-source-files {} ~/.dotfiles-backup/
+    echo "dotfiles checkout failed";
+    # echo "Backing up pre-existing dot files.";
+    # dotfiles checkout 2>&1 | awk '/^\s+/ { print $1}' | xargs -I{} rsync -avR --remove-source-files {} ~/.dotfiles-backup/
 fi;
 
-dotfiles checkout
-
-dotfiles config status.showUntrackedFiles no
+# dotfiles checkout
 

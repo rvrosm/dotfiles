@@ -25,7 +25,7 @@ if [ "$1" = "show" ]; then
 fi
 
 if [ "$1" = "search" ]; then
-    networksetup -setsearchdomains Wi-Fi lan
+    networksetup -setsearchdomains Wi-Fi home.arpa
 fi
 
 # flush dns cache

@@ -82,6 +82,11 @@ alias Gm='git commit'
 alias Gp='git push'
 alias Gl='git pull'
 # git }}}
+# K8s {{{
+alias k=kubectl
+alias ka='kubectl get pods -A'
+alias ks='kubectl -n kube-system'
+# K8s }}}
 # podman {{{
 
 alias pod=podman
@@ -245,4 +250,4 @@ export LS_COLORS='*~=0;38;2;102;102;102:bd=0;38;2;154;237;254;48;2;51;51;51:ca=0
 # LS_COLORS }}}
 #
 #
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"

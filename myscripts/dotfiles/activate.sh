@@ -7,11 +7,13 @@ if [  -f activated.txt ]; then
     exit 1;
 fi
 
-# install packages
-./pkgs_install.sh update
-./pkgs_install.sh must
+# pkgs
+sh pkgs.sh
 
 zsh
+
+# prompt
+starship preset tokyo-night -o ~/.config/starship.toml
 
 ./init_vim.sh
 

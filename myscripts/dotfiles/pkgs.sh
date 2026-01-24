@@ -15,6 +15,8 @@ case "$1" in
     others)
 	# terminal
 	pacman -Sy tmux tmuxp 
+	# prompts
+	pacman -Sy starship
 	# new tools
 	pacman -S bfs
 	# riir 
@@ -33,6 +35,6 @@ case "$1" in
 	# pacman -Sy otf-font-awesome noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra 
 	;;
     *)
-	pacman -Syy base-devel git curl rsync wget screen zip unzip vim man net-tools openssh zsh fzf python wireguard-tools shadowsocks-rust ripgrep fd vivid atuin duf eza bc gnupg unzip usbutils tree jq dnsutils
+	pacman -Syy base-devel git curl rsync wget screen zip unzip vim man net-tools openssh zsh fzf python wireguard-tools shadowsocks-rust ripgrep fd vivid atuin duf eza bc gnupg unzip usbutils tree jq dnsutils 
 	;;
 esac

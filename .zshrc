@@ -38,6 +38,9 @@ export PROMPT='%1~ %# '
 export RPROMPT='%n@%m'
 # Prompt }}}
 # Other Tools {{{
+# k3s {{{
+export KUBECONFIG='/etc/rancher/k3s/k3s.yaml'
+# k3s }}}
 # Other Tools }}}
 # ENVs }}}
 # setopts {{{

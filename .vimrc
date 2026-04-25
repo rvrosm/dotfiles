@@ -116,7 +116,7 @@ plug#end()
 # vim-plug Plugins }}}
 # packadd {{{
 packadd! comment
-packadd lsp
+# packadd lsp
 packadd vimcomplete
 
 # packadd }}}

@@ -10,4 +10,4 @@ cursor-text                 = "#eff0eb"
 shell-integration-features  = no-cursor
 macos-non-native-fullscreen = false
 copy-on-select              = clipboard
-fullscreen
+fullscreen = true

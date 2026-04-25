@@ -2,11 +2,15 @@ snippet d "date" b
 `!v strftime("%Y-%m-%d")` ${0}
 endsnippet
 
+snippet ed "Equity:Discounts:GiftCards" b
+Equity:Discounts:GiftCards
+endsnippet
+
 snippet l "location" b
 ${1:`!v strftime("%Y-%m-%d")`} event "location" "${2:Paris, France}"
 endsnippet
 
-snippet aar "AccountsReceivable"
+snippet ar "AccountsReceivable"
 Assets:AccountsReceivable ${1} USD
 endsnippet
 
@@ -25,9 +29,23 @@ Expenses:Tools ${1} USD
 endsnippet
 
 
-snippet ic "Icecream"
+snippet fI "Icecream"
 Expenses:Food:Icecream ${1} USD
 endsnippet
+
+snippet fi "InstantFood"
+Expenses:Food:HomeFoods:InstantFood ${1} USD
+endsnippet
+
+snippet fb "Bread"
+Expenses:Food:HomeFoods:Bread ${1} USD
+endsnippet
+
+snippet fL "Liquor"
+Expenses:Food:Drinks:Liquor ${1} USD
+endsnippet
+
+
 
 
 snippet fm "Milk" b
@@ -43,8 +61,14 @@ snippet fe "Eggs" b
 Expenses:Food:HomeFoods:Eggs    ${1:24} EGG  {{${2:4.89} USD}}
 endsnippet
 
-snippet fh "HomeCooking" b
+snippet fh "HomeFoods" b
 Expenses:Food:HomeFoods:Others ${1} USD
+endsnippet
+snippet fd "Deli" b
+Expenses:Food:HomeFoods:Deli ${1} USD
+endsnippet
+snippet fp "Produce" b
+Expenses:Food:HomeFoods:Produce ${1} USD
 endsnippet
 
 snippet ff "Fruits" b
@@ -58,6 +82,11 @@ endsnippet
 snippet fr "Expenses" b
 Expenses:Food:Restaurants:Dining ${0} USD
 endsnippet
+
+snippet fF "Fastfood" b
+Expenses:Food:Restaurants:Fastfood ${0} USD
+endsnippet
+
 
 snippet td "Target Discounts" b
 Expenses:US:Target:Reloadable:Discounts -${1} USD

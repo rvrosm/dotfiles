@@ -7,12 +7,12 @@ alias Se='systemctl enable'
 alias Sd='systemctl disable'
 alias Sr='systemctl restart'
 alias Ss='systemctl status'
-alias Sdr='systemctl daemon-reload'
+alias SR='systemctl daemon-reload'
 
 alias J=journalctl 
 alias Jxe='journalctl -xe'
 
-alias rl=resolvectl
+alias R=resolvectl
 
 alias yp=yabsnap
 alias bk=btrbk
@@ -25,6 +25,6 @@ alias Pr='pacman -R'
 alias Pq='pacman -Q'
 alias Pc='pacman -Syc'
 
-alias nlr='nft list ruleset'
-alias nfr='nft flush ruleset'
+alias Nl='nft list ruleset'
+alias Nf='nft flush ruleset'
 # Aliases }}}

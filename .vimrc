@@ -20,21 +20,29 @@ if has("mac")
     Plug 'lyokha/vim-xkbswitch'
 endif
 " }}}
+" Copilot
+Plug 'github/copilot.vim'
+" coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" fern
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-git-status.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 " IDE {{{
 " vim-lsp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 " auto complete
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'hiterm/asyncomplete-look'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+" Plug 'prabirshrestha/asyncomplete-file.vim'
+" Plug 'prabirshrestha/asyncomplete-buffer.vim'
+" Plug 'hiterm/asyncomplete-look'
 " make comple slow
 " Plug 'yami-beta/asyncomplete-omni.vim'
 " ale lint
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 " auto complete tag 
 Plug 'mattn/emmet-vim'
 
@@ -48,7 +56,7 @@ Plug 'junegunn/fzf.vim'
 
 " tagbar 
 " Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 
 
 " debug
@@ -558,57 +566,117 @@ nmap  <leader>T <Plug>Transposewords
 " }}}
 
 " Plugin Configs {{{
+" fern
+nnoremap <leader>F :Fern . -drawer -toggle<CR>
+" coc
+set completeopt=menuone,noinsert,noselect
 
-" lsp {{{
-if executable('pylsp')
-    " pip install python-lsp-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pylsp',
-        \ 'cmd': {server_info->['pylsp']},
-        \ 'allowlist': ['python'],
-        \ })
-endif
+" Show documentation on hover
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
-    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+" Highlight symbol under cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-    let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
-    " refer to doc to add more commands
+" Diagnostics navigation
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Show errors
+nnoremap <leader>e :CocDiagnostics<CR>
+
+" Open outline sidebar
+nnoremap <leader>O :CocOutline<CR>
+
+" Use tab for completion
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Enter to confirm completion
+inoremap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<CR>"
+
+" Go to definition
+nnoremap <silent> gd <Plug>(coc-definition)
+
+" Go to references
+nnoremap <silent> gr <Plug>(coc-references)
+
+" Rename symbol
+nnoremap <leader>rn <Plug>(coc-rename)
+
+" Format file
+nnoremap <leader>% :call CocAction('format')<CR>
+
+" ----- vim-lsp -----
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_echo_cursor = 0
+let g:lsp_diagnostics_float_insert_mode_enabled = 0
+
+
+nmap gd <plug>(lsp-definition)
+nmap gr <plug>(lsp-references)
+nmap K  <plug>(lsp-hover)
+nmap <leader>rn <plug>(lsp-rename)
+
+" Diagnostics
+nmap <leader>e <plug>(lsp-document-diagnostics)
+
+" ----- Completion -----
+let g:asyncomplete_auto_popup = 1
+
+imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" function! s:on_lsp_buffer_enabled() abort
+"     setlocal omnifunc=lsp#complete
+"     setlocal signcolumn=yes
+"     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+"     nmap <buffer> gd <plug>(lsp-definition)
+"     nmap <buffer> gs <plug>(lsp-document-symbol-search)
+"     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+"     nmap <buffer> gr <plug>(lsp-references)
+"     nmap <buffer> gi <plug>(lsp-implementation)
+"     nmap <buffer> gt <plug>(lsp-type-definition)
+"     nmap <buffer> <leader>rn <plug>(lsp-rename)
+"     nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+"     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+"     nmap <buffer> K <plug>(lsp-hover)
+"     nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+"     nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+"     let g:lsp_format_sync_timeout = 1000
+"     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+    
+"     " refer to doc to add more commands
+" endfunction
 
 augroup lsp_install
     au!
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-" lsp }}}
-" autocomplete {{{
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-" autocomplete }}}
 
-" ultisnips {{{
-let g:UltiSnipsExpandOrJumpTrigger = "<tab>"
+" ----- Copilot -----
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+imap <C-L> <Plug>(copilot-next)
+imap <C-H> <Plug>(copilot-previous)
+
+
+" ultisnips 
+let g:UltiSnipsExpandOrJumpTrigger = "<C-l>"
+let g:UltiSnipsJumpForwardTrigger = "<C-l>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
+" let g:UltiSnipsExpandOrJumpTrigger = "<tab>"
 let g:UltiSnipsEnableSnipMate = 0
 
-" }}}
 " fzf {{{
 
 nnoremap <leader>ff :Files ~<CR>
@@ -637,8 +705,8 @@ nnoremap <leader>fC :Commits<cr>
 nnoremap <leader>fj :Jumps<CR>
 nnoremap <leader>fk :Locate<space>
 nnoremap <leader>fK :Colors<CR>
-nnoremap <leader>fm :Maps<CR>
-nnoremap <leader>f' :Marks<CR>
+nnoremap <leader>fm :Marks<CR>
+nnoremap <leader>fM :Maps<CR>
 nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>ft :Filetypes<CR>
 nnoremap <leader>fw :Windows<CR>
@@ -675,34 +743,33 @@ let g:tagbar_compact = 2
 let g:tagbar_width = max([25, winwidth(0) / 5])
 nm <silent> <leader>a :TagbarToggle<CR>
 " https://github.com/jstemmer/gotags
-" let g:tagbar_type_go = {
-"     'ctagstype': 'go',
-"     'kinds': [
-"       'p:package',
-"       'i:imports:1',
-"       'c:constants',
-"       'v:variables',
-"       't:types',
-"       'n:interfaces',
-"       'w:fields',
-"       'e:embedded',
-"       'm:methods',
-"       'r:constructor',
-"       'f:functions',
-"     ],
-"     'sro': '.',
-"     'kind2scope': {
-"       't': 'ctype',
-"       'n': 'ntype',
-"     },
-"     'scope2kind': {
-"       'ctype': 't',
-"       'ntype': 'n',
-"     },
-"     'ctagsbin': 'gotags',
-"     'ctagsargs': '-sort -silent',
-" }
-
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
 autocmd! BufWritePost *.go silent! !gotags -R -f tags . 2>&1 &
 autocmd! BufWritePost *.beancount silent! !ctags --options=beancount.ctags -R --exclude=.git --exclude=.venv . 2>&1 &
 

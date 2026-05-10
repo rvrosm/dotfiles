@@ -92,17 +92,17 @@ alias ks='kubectl -n kube-system'
 # K8s }}}
 # podman {{{
 
-alias pod=podman
+alias po=podman
 
-alias podr='podman run'
+alias por='podman run'
 
-alias podp='podman pull'
+alias pop='podman pull'
 
-alias pcl='podman container ls'
+alias pol='podman container ls'
 
-alias podn='podman network'
-alias pnl='podman network ls'
-alias pode='podman exec -it'
+alias pon='podman network'
+alias ponl='podman network ls'
+alias poe='podman exec -it'
 # podman }}}
 # docker {{{
 

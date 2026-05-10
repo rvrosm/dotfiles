@@ -24,6 +24,8 @@ endif
 Plug 'github/copilot.vim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Rooter
+Plug 'airblade/vim-rooter'
 " fern
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'

@@ -570,8 +570,22 @@ nmap  <leader>T <Plug>Transposewords
 " Plugin Configs {{{
 " fern
 nnoremap <leader>F :Fern . -drawer -toggle<CR>
-" coc
+" ,coc
 set completeopt=menuone,noinsert,noselect
+" ,coc-snippets
+" :CocInstall coc-snippets
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " Show documentation on hover
 nnoremap <silent> K :call CocActionAsync('doHover')<CR>
@@ -589,13 +603,13 @@ nnoremap <leader>e :CocDiagnostics<CR>
 " Open outline sidebar
 nnoremap <leader>O :CocOutline<CR>
 
-" Use tab for completion
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+" " Use tab for completion
+" inoremap <silent><expr> <Tab>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<Tab>" :
+"       \ coc#refresh()
 
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -617,69 +631,12 @@ nnoremap <leader>rn <Plug>(coc-rename)
 " Format file
 nnoremap <leader>% :call CocAction('format')<CR>
 
-" ----- vim-lsp -----
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_diagnostics_float_cursor = 1
-let g:lsp_diagnostics_echo_cursor = 0
-let g:lsp_diagnostics_float_insert_mode_enabled = 0
-
-
-nmap gd <plug>(lsp-definition)
-nmap gr <plug>(lsp-references)
-nmap K  <plug>(lsp-hover)
-nmap <leader>rn <plug>(lsp-rename)
-
-" Diagnostics
-nmap <leader>e <plug>(lsp-document-diagnostics)
-
-" ----- Completion -----
-let g:asyncomplete_auto_popup = 1
-
-imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-" function! s:on_lsp_buffer_enabled() abort
-"     setlocal omnifunc=lsp#complete
-"     setlocal signcolumn=yes
-"     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-"     nmap <buffer> gd <plug>(lsp-definition)
-"     nmap <buffer> gs <plug>(lsp-document-symbol-search)
-"     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-"     nmap <buffer> gr <plug>(lsp-references)
-"     nmap <buffer> gi <plug>(lsp-implementation)
-"     nmap <buffer> gt <plug>(lsp-type-definition)
-"     nmap <buffer> <leader>rn <plug>(lsp-rename)
-"     nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-"     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-"     nmap <buffer> K <plug>(lsp-hover)
-"     nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-"     nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
-
-"     let g:lsp_format_sync_timeout = 1000
-"     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
-"     " refer to doc to add more commands
-" endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
 " ----- Copilot -----
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 imap <C-L> <Plug>(copilot-next)
 imap <C-H> <Plug>(copilot-previous)
 
-
-" ultisnips 
-let g:UltiSnipsExpandOrJumpTrigger = "<C-l>"
-let g:UltiSnipsJumpForwardTrigger = "<C-l>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
-" let g:UltiSnipsExpandOrJumpTrigger = "<tab>"
-let g:UltiSnipsEnableSnipMate = 0
-
-" fzf {{{
+" ,fzf
 
 nnoremap <leader>ff :Files ~<CR>
 nnoremap <leader>f. :Files ~/.config/<CR>
@@ -734,7 +691,7 @@ endfunction
 
 command! -bang -nargs=* Rg call Rg(<q-args>, <bang>0)
 command! -bang -nargs=* F call F(<q-args>, <bang>0)
-" }}}
+
 " tagbar {{{
 let g:tagbar_autofocus = 0
 let g:tagbar_compact = 2

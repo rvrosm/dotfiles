@@ -12,6 +12,9 @@ dotfiles add $HOME/myscripts/
 # .config
 dotfiles add $HOME/.config/init.sh
 
+# direnv
+dotfiles add $HOME/.config/direnv/direnvrc
+
 # alcaritty
 dotfiles add $HOME/.config/alacritty/base.toml
 dotfiles add $HOME/.config/alacritty/macos.toml

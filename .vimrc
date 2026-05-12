@@ -572,6 +572,7 @@ nmap  <leader>T <Plug>Transposewords
 nnoremap <leader>F :Fern . -drawer -toggle<CR>
 " ,coc
 set completeopt=menuone,noinsert,noselect
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
 " ,coc-snippets
 " :CocInstall coc-snippets
 inoremap <silent><expr> <TAB>

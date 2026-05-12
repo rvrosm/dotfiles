@@ -1,23 +1,37 @@
 #!/usr/bin/env zsh
-#
+
+# -----------------------------
+# setup dir
+# -----------------------------
 ZSH_COMP_DIR="$HOME/.zsh/completions"
 mkdir -p "$ZSH_COMP_DIR"
+
+# add to fpath BEFORE compinit
 fpath=("$ZSH_COMP_DIR" $fpath)
 
-generate_completion() {
-  local cmd=$1
-  local file="$ZSH_COMP_DIR/_$cmd"
-  local bin
+# -----------------------------
+# commands
+# -----------------------------
+CMDS=(kubectl rustup starship fzf tinty)
 
-  (( $+commands[$cmd] )) || return
-  bin=$(command -v $cmd)
+for cmd in $CMDS; do
+  (( $+commands[$cmd] )) || continue
 
-  if [[ ! -f $file || $bin -nt $file ]]; then
-    $cmd completions zsh > "$file" 2>/dev/null
-  fi
-}
+  file="$ZSH_COMP_DIR/_$cmd"
+  bin="$(command -v $cmd)"
 
-generate_completion rustup
-generate_completion kubectl
-generate_completion tinty
-generate_completion fzf
+  # skip if up-to-date
+  [[ -f "$file" && "$bin" -ot "$file" ]] && continue
+
+  # map command to completion generator
+  case "$cmd" in
+    kubectl)   gen="kubectl completion zsh" ;;
+    rustup)    gen="rustup completions zsh" ;;
+    starship)  gen="starship completions zsh" ;;
+    fzf)       gen="fzf --zsh" ;;
+    tinty)     gen="tinty completion zsh" ;;
+    *) continue ;;
+  esac
+
+  eval "$gen" > "$file" 2>/dev/null
+done

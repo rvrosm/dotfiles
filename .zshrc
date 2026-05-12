@@ -163,9 +163,16 @@ bindkey -e
 # bindkey -v
 # bindkey }}}
 # Completion {{{
+
+# load completion builder FIRST
+[[ -r ~/.config/zsh/comp.zsh ]] && source ~/.config/zsh/comp.zsh
+# then initialize completion system
+autoload -Uz compinit
+compinit
+
+
 # zstyle :compinstall filename "$$HOME/.zshrc"
 fpath=($_zdir/completion $_zdir/functions $fpath)
-autoload -Uz compinit; compinit 
 
 zmodload zsh/complist
 

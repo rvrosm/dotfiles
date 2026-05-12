@@ -35,7 +35,7 @@ echo "[install-pkgs] detected: $DIST"
 # -----------------------------
 PKGS_COMMON=(base-devel git gnupg openssh 
     curl rsync wget 
-    zip unzip fd ripgrep fzf 
+    zip unzip fd ripgrep fzf atuin duf
     lsof iotop bc tree jq 
     direnv tmux screen starship zsh alacritty zsh vim
     nodejs npm go rust python 

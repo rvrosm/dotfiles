@@ -24,6 +24,13 @@ save_to_clipboard = true
 
 [mouse]
 hide_when_typing = true
-bindings = [
-{ mouse = "Right", mods = "Control", action = "Paste" },
-] 
+
+[[mouse.bindings]]
+mouse = "Right"
+action = "Paste"
+
+[[mouse.bindings]]
+mouse = "Right"
+mods = "Control"
+action = "Paste"
+

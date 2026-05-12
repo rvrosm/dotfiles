@@ -11,9 +11,13 @@ dotfiles add $HOME/myscripts/
 
 # .config
 dotfiles add $HOME/.config/init.sh
+dotfiles add $HOME/.config/install.sh
+dotfiles add $HOME/.config/install-pkgs.sh
+
 
 # direnv
 dotfiles add $HOME/.config/direnv/direnvrc
+# starship
 
 # alcaritty
 dotfiles add $HOME/.config/alacritty/base.toml

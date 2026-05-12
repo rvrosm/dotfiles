@@ -622,36 +622,36 @@ imap <C-L> <Plug>(copilot-next)
 imap <C-H> <Plug>(copilot-previous)
 
 " ,fzf
-nnoremap <leader>ff :Files ~<CR>
-nnoremap <leader>f. :Files ~/.config/<CR>
+nnoremap <leader>fh :Files ~<CR>
+nnoremap <leader>fc :Files ~/.config/<CR>
 nnoremap <leader>fz :Files ~/.config/zsh/<CR>
 nnoremap <leader>fv :Files ~/.vim/<CR>
-nnoremap <leader>fp :Files $VIMRUNTIME<CR>
+nnoremap <leader>fr :Files $VIMRUNTIME<CR>
 
 nnoremap <leader>f<space> :Files<Space>
-nnoremap <leader>fd :Files<CR>
+nnoremap <leader>f :Files<CR>
 
-nnoremap <leader>fa :Tags<space>
-nnoremap <leader>fA :BTags<space> 
+nnoremap <leader>ft :Tags<space>
+nnoremap <leader>fbt :BTags<space> 
 nnoremap <leader>fg :GFiles<cr> " git status
 nnoremap <leader>fG :GFiles?<cr> " git ls-files
-nnoremap <leader>fh :Helptags<CR>
+nnoremap <leader>fht :Helptags<CR>
 nnoremap <leader>fH :History<CR>
-nnoremap <leader>f: :History:<CR>
-nnoremap <leader>f/ :History/<CR>
-nnoremap <leader>fl :Lines<space>
-nnoremap <leader>fL :BLines<space>
+nnoremap <leader>fH: :History:<CR>
+nnoremap <leader>fH/ :History/<CR>
+nnoremap <leader>fli :Lines<space>
+nnoremap <leader>fbl :BLines<space>
 nnoremap <leader>fs :Snippets<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fc :Changes<CR>
-nnoremap <leader>fC :Commits<cr>
+nnoremap <leader>fbu :Buffers<CR>
+nnoremap <leader>fch :Changes<CR>
+nnoremap <leader>fcm :Commits<cr>
 nnoremap <leader>fj :Jumps<CR>
-nnoremap <leader>fk :Locate<space>
-nnoremap <leader>fK :Colors<CR>
-nnoremap <leader>fm :Marks<CR>
-nnoremap <leader>fM :Maps<CR>
+nnoremap <leader>flo :Locate<space>
+nnoremap <leader>fcl :Colors<CR>
+nnoremap <leader>fmk :Marks<CR>
+nnoremap <leader>fmp :Maps<CR>
 nnoremap <leader>rg :Rg<CR>
-nnoremap <leader>ft :Filetypes<CR>
+nnoremap <leader>fft :Filetypes<CR>
 nnoremap <leader>fw :Windows<CR>
 
 " Define g:fzf_layout if it doesn't exist

@@ -9,48 +9,56 @@ dotfiles add $HOME/.gitignore
 
 dotfiles add $HOME/myscripts/
 
-# Linux {{{
-dotfiles add $HOME/.Xdefaults
-
-# sway {{{
-dotfiles add $HOME/.config/sway/config
-
-# sway }}}
-# fontconfig {{{
-dotfiles add $HOME/.config/fontconfig/fonts.conf
-# fontconfig }}}
-# Linux }}}
-
-# ghostty
-dotfiles add $HOME/.config/ghostty/config
+# .config
+dotfiles add $HOME/.config/init.sh
 
 # alcaritty
-# dotfiles add $HOME/.config/alacritty/alacritty.yml
-dotfiles add $HOME/.config/alacritty/alacritty.toml
+dotfiles add $HOME/.config/alacritty/base.toml
+dotfiles add $HOME/.config/alacritty/macos.toml
+dotfiles add $HOME/.config/alacritty/windows.toml
+dotfiles add $HOME/.config/alacritty/build.sh
+dotfiles add $HOME/.config/alacritty/link-windows.sh
+
+# vim
+dotfiles add $HOME/.vimrc
+dotfiles add $HOME/.vim/UltiSnips/
+dotfiles add $HOME/.vim/myplugin/
+dotfiles add $HOME/.config/vim/
 
 # tmux
 dotfiles add $HOME/.tmux.conf
+dotfiles add $HOME/.config/tmux/
+
+# zsh
+dotfiles add $HOME/.zshrc
+dotfiles add $HOME/.config/zsh/linux.zsh
+dotfiles add $HOME/.config/zsh/macos.zsh
+dotfiles add $HOME/.config/zsh/plugins.zsh
+dotfiles add $HOME/.config/zsh/comp.zsh
+
+
+
+# X11
+dotfiles add $HOME/.Xdefaults
+
+# sway 
+dotfiles add $HOME/.config/sway/config
+
+# fontconfig 
+dotfiles add $HOME/.config/fontconfig/fonts.conf
+
+# ghostty
+dotfiles add $HOME/.config/ghostty/config
 
 # tmuxp
 dotfiles add $HOME/.config/tmuxp/
 
 
 
-# zsh
-dotfiles add $HOME/.zshrc
-dotfiles add $HOME/.config/zsh/linux.zsh
-dotfiles add $HOME/.config/zsh/macOS.zsh
-dotfiles add $HOME/.config/zsh/plugins.zsh
-
 # screen
 dotfiles add $HOME/.screenrc
 
 dotfiles add $HOME/.poliporc
-
-# vim
-dotfiles add $HOME/.vimrc
-dotfiles add $HOME/.vim/UltiSnips/
-dotfiles add $HOME/.vim/myplugin/
 
 # fastfetch
 dotfiles add $HOME/.config/fastfetch

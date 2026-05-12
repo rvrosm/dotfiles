@@ -1,0 +1,39 @@
+[window]
+decorations = "None"
+# startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
+startup_mode = "Fullscreen"
+option_as_alt = "Both"
+
+[font]
+# 15.5 is perfect for monaco. it will make lines almost fit the screen, but it's too small for me
+# size = 17.5 # for monaco
+size = 12 # for sfmono
+
+
+[scrolling]
+history = 100000
+multiplier = 3
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.cursor]
+cursor     = "#29A63E"
+text       = "#eff0eb"
+
+[colors.primary]
+background = "#000000"
+foreground = "#D8D8B3" # light beige
+# foreground = "#F5F5DC" # soft ivory
+# foreground = "#D8E6E0" # pale mint
+# foreground = "#D3D3D3" # light grey
+# foreground = "#FAFAD2" # warm white
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+bindings = [
+{ mouse = "Right", mods = "Control", action = "Paste" },
+] 

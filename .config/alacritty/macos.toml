@@ -1,0 +1,11 @@
+[window]
+decorations = "buttonless"
+startup_mode = "SimpleFullscreen"
+
+[font]
+# 15.5 is perfect for monaco. it will make lines almost fit the screen, but it's too small for me
+# size = 17.5 # for monaco
+size = 17.5 # for sfmono
+normal = { family = "SFMono Nerd Font" }
+
+

@@ -2,6 +2,12 @@
 shell = { program = "wsl.exe" }
 
 [font]
-# size = 12 
+size = 15 
 normal = { family = "Cascadia Mono" }
+
+[window]
+decorations = "None"
+# startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
+startup_mode = "Maximized"
+option_as_alt = "Both"
 

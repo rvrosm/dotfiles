@@ -603,13 +603,13 @@ nnoremap <leader>e :CocDiagnostics<CR>
 " Open outline sidebar
 nnoremap <leader>O :CocOutline<CR>
 
-" " Use tab for completion
-" inoremap <silent><expr> <Tab>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<Tab>" :
-"       \ coc#refresh()
+" Use tab for completion
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 
-" inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -631,13 +631,12 @@ nnoremap <leader>rn <Plug>(coc-rename)
 " Format file
 nnoremap <leader>% :call CocAction('format')<CR>
 
-" ----- Copilot -----
+" ,copilot
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 imap <C-L> <Plug>(copilot-next)
 imap <C-H> <Plug>(copilot-previous)
 
 " ,fzf
-
 nnoremap <leader>ff :Files ~<CR>
 nnoremap <leader>f. :Files ~/.config/<CR>
 nnoremap <leader>fz :Files ~/.config/zsh/<CR>

@@ -8,12 +8,25 @@ grep -qi microsoft /proc/version 2>/dev/null || {
 }
 
 A="$HOME/.config/alacritty"
-WSL_FILE="$A/alacritty.toml"
+SRC="$A/alacritty.toml"
+HASH_FILE="$A/.alacritty_hash"
 
-# convert to Windows path
-WIN_SOURCE=$(wslpath -w "$WSL_FILE")
+# compute current hash
+current_hash=$(sha256sum "$SRC" | awk '{print $1}')
 
-echo "[alacritty] linking Windows config"
+# read previous hash (if exists)
+previous_hash=""
+[[ -f "$HASH_FILE" ]] && previous_hash=$(cat "$HASH_FILE")
+
+# compare
+if [[ "$current_hash" == "$previous_hash" ]]; then
+  echo "[alacritty] unchanged"
+  exit 0
+fi
+
+echo "[alacritty] config changed → updating Windows link"
+
+WIN_SOURCE=$(wslpath -w "$SRC")
 
 pwsh.exe -NoProfile -Command "
   \$target = \"\$env:APPDATA\\alacritty\\alacritty.toml\"
@@ -26,7 +39,8 @@ pwsh.exe -NoProfile -Command "
     Remove-Item \$target -Force
   }
 
-  New-Item -ItemType SymbolicLink -Path \$target -Target \$source
-
-  Write-Host '✅ linked alacritty.toml'
+  New-Item -ItemType SymbolicLink -Path \$target -Target \$source | Out-Null
 "
+
+# save hash
+echo "$current_hash" > "$HASH_FILE"

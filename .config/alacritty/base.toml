@@ -1,8 +1,3 @@
-[window]
-decorations = "None"
-# startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
-startup_mode = "Fullscreen"
-option_as_alt = "Both"
 
 
 [scrolling]

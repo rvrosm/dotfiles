@@ -1,5 +1,3 @@
-
-
 [scrolling]
 history = 100000
 multiplier = 3
@@ -24,13 +22,3 @@ save_to_clipboard = true
 
 [mouse]
 hide_when_typing = true
-
-[[mouse.bindings]]
-mouse = "Right"
-action = "Paste"
-
-[[mouse.bindings]]
-mouse = "Right"
-mods = "Control"
-action = "Paste"
-

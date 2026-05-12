@@ -18,9 +18,6 @@ dotfiles add $HOME/.config/install-pkgs.sh
 # direnv
 dotfiles add $HOME/.config/direnv/direnvrc
 
-# starship
-dotfiles add $HOME/.config/starship.toml
-
 # alcaritty
 dotfiles add $HOME/.config/alacritty/base.toml
 dotfiles add $HOME/.config/alacritty/macos.toml

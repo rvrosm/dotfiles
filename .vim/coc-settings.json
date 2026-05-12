@@ -1,0 +1,26 @@
+{
+  "languageserver": {
+    "beancount": {
+      "command": "beancount-language-server",
+      "filetypes": ["beancount"],
+      "rootPatterns": ["main.beancount"],
+      "initializationOptions": {
+        "journal_file": "main.beancount",
+	"bean_check": {
+	  "method": "python-embedded" 
+	},
+        "formatting": {
+          "prefix_width": 30,
+          "num_width": 10,
+          "currency_column": 60,
+          "account_amount_spacing": 2,
+          "number_currency_spacing": 1
+        },
+        "completion": {
+          "fuzzy_match_accounts": true
+        },
+        "diagnostic_flags": ["!"]
+      }
+    }
+  }
+}

@@ -23,6 +23,7 @@ dotfiles add $HOME/.config/alacritty/link-windows.sh
 dotfiles add $HOME/.vimrc
 dotfiles add $HOME/.vim/UltiSnips/
 dotfiles add $HOME/.vim/myplugin/
+dotfiles add $HOME/.vim/coc-settings.json
 dotfiles add $HOME/.config/vim/
 
 # tmux

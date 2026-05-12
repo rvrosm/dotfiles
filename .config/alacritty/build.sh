@@ -24,7 +24,8 @@ tmp=$(mktemp)
   echo
   cat "$DIR/base.toml"
   echo
-  cat "$DIR/$OS.toml"
+
+[[ -f "$DIR/$OS.toml" ]] && cat "$DIR/$OS.toml"
 } > "$tmp"
 
 # only update if changed

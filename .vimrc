@@ -603,22 +603,6 @@ nnoremap <leader>e :CocDiagnostics<CR>
 " Open outline sidebar
 nnoremap <leader>O :CocOutline<CR>
 
-" Use tab for completion
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Enter to confirm completion
-inoremap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<CR>"
-
 " Go to definition
 nnoremap <silent> gd <Plug>(coc-definition)
 
@@ -691,47 +675,6 @@ endfunction
 command! -bang -nargs=* Rg call Rg(<q-args>, <bang>0)
 command! -bang -nargs=* F call F(<q-args>, <bang>0)
 
-" tagbar {{{
-let g:tagbar_autofocus = 0
-let g:tagbar_compact = 2
-" This value can also be set using the |winwidth(0)| function call to calculate
-" a dynamic value to make the tagbar width relative to a percentage of the vim
-" window size as seen in the example below that will open the tagbar window to
-" 20 percent of the window width with a limit of no less than 25 characters.
-let g:tagbar_width = max([25, winwidth(0) / 5])
-nm <silent> <leader>a :TagbarToggle<CR>
-" https://github.com/jstemmer/gotags
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
-autocmd! BufWritePost *.go silent! !gotags -R -f tags . 2>&1 &
-autocmd! BufWritePost *.beancount silent! !ctags --options=beancount.ctags -R --exclude=.git --exclude=.venv . 2>&1 &
-
-" }}}
 " emmet-vim {{{
 let g:user_emmet_leader_key = '<C-y>'
 let g:user_emmet_install_global = 0
@@ -824,4 +767,45 @@ nmap - <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 let g:choosewin_statusline_replace = 0
 " choosewin }}}
+" " tagbar {{{
+" let g:tagbar_autofocus = 0
+" let g:tagbar_compact = 2
+" " This value can also be set using the |winwidth(0)| function call to calculate
+" " a dynamic value to make the tagbar width relative to a percentage of the vim
+" " window size as seen in the example below that will open the tagbar window to
+" " 20 percent of the window width with a limit of no less than 25 characters.
+" let g:tagbar_width = max([25, winwidth(0) / 5])
+" nm <silent> <leader>a :TagbarToggle<CR>
+" " https://github.com/jstemmer/gotags
+" let g:tagbar_type_go = {
+" 	\ 'ctagstype' : 'go',
+" 	\ 'kinds'     : [
+" 		\ 'p:package',
+" 		\ 'i:imports:1',
+" 		\ 'c:constants',
+" 		\ 'v:variables',
+" 		\ 't:types',
+" 		\ 'n:interfaces',
+" 		\ 'w:fields',
+" 		\ 'e:embedded',
+" 		\ 'm:methods',
+" 		\ 'r:constructor',
+" 		\ 'f:functions'
+" 	\ ],
+" 	\ 'sro' : '.',
+" 	\ 'kind2scope' : {
+" 		\ 't' : 'ctype',
+" 		\ 'n' : 'ntype'
+" 	\ },
+" 	\ 'scope2kind' : {
+" 		\ 'ctype' : 't',
+" 		\ 'ntype' : 'n'
+" 	\ },
+" 	\ 'ctagsbin'  : 'gotags',
+" 	\ 'ctagsargs' : '-sort -silent'
+" \ }
+" autocmd! BufWritePost *.go silent! !gotags -R -f tags . 2>&1 &
+" autocmd! BufWritePost *.beancount silent! !ctags --options=beancount.ctags -R --exclude=.git --exclude=.venv . 2>&1 &
+
+" " }}}
 " Plugin Configs }}}

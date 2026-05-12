@@ -50,14 +50,6 @@ done
 # alacritty (only special case)
 ~/.config/alacritty/build.sh
 
-# windows link (run once in WSL)
-if grep -qi microsoft /proc/version; then
-  FLAG="$HOME/.config/alacritty/.windows_linked"
-
-  if [[ ! -f "$FLAG" ]]; then
-    ~/.config/alacritty/link-windows.sh
-    touch "$FLAG"
-  else
-    echo "[alacritty] Windows link already initialized"
-  fi
-fi
+# windows link if WSL
+grep -qi microsoft /proc/version && \
+  ~/.config/alacritty/link-windows.sh

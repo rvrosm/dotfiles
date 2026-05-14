@@ -1,35 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "[install-pkgs] start"
-
-# -----------------------------
-# detect platform
-# -----------------------------
-OS=""
-DIST=""
-
-case "$(uname -s)" in
-  Linux)
-    OS="linux"
-
-    if [[ -f /etc/os-release ]]; then
-      . /etc/os-release
-      DIST="$ID"
-    fi
-    ;;
-  Darwin)
-    OS="macos"
-    DIST="macos"
-    ;;
-  *)
-    echo "unsupported system"
-    exit 1
-    ;;
-esac
-
-echo "[install-pkgs] detected: $DIST"
-
 # -----------------------------
 # package lists
 # -----------------------------
@@ -37,7 +8,7 @@ PKGS_COMMON=(base-devel git gnupg openssh
     curl rsync wget 
     zip unzip fd ripgrep fzf atuin duf
     lsof iotop bc tree jq 
-    direnv tmux screen starship zsh alacritty zsh vim
+    direnv tmux screen starship zsh alacritty zsh vim neovim
     nodejs npm go rust python 
 )
 
@@ -71,6 +42,37 @@ map_pkgs() {
 }
 
 mapped=($(map_pkgs "${PKGS_COMMON[@]}"))
+
+
+
+echo "[install-pkgs] start"
+
+# -----------------------------
+# detect platform
+# -----------------------------
+OS=""
+DIST=""
+
+case "$(uname -s)" in
+  Linux)
+    OS="linux"
+
+    if [[ -f /etc/os-release ]]; then
+      . /etc/os-release
+      DIST="$ID"
+    fi
+    ;;
+  Darwin)
+    OS="macos"
+    DIST="macos"
+    ;;
+  *)
+    echo "unsupported system"
+    exit 1
+    ;;
+esac
+
+echo "[install-pkgs] detected: $DIST"
 
 # -----------------------------
 # helpers

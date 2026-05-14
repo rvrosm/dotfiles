@@ -9,7 +9,7 @@ export _zdir=$HOME/.zsh
 export _zplugs=$_zdir/plugins
 export EDITOR=vim
 export VISUAL=vim
-export TERM=alacritty
+export TERM=xterm-256color
 export LANG=en_US.UTF-8
 # Basic }}}
 # History {{{

@@ -25,6 +25,9 @@ dotfiles add $HOME/.config/alacritty/windows.toml
 dotfiles add $HOME/.config/alacritty/build.sh
 dotfiles add $HOME/.config/alacritty/link-windows.sh
 
+# nvim
+dotfiles add $HOME/.config/nvim/
+
 # vim
 dotfiles add $HOME/.vimrc
 dotfiles add $HOME/.vim/UltiSnips/

@@ -252,7 +252,6 @@ else
   autocmd BufNewFile,BufRead /dev/shm/gopass* setlocal noswapfile nobackup noundofile shada="" viminfo=""
 endif
 " gopass }}}
-
 " Settings }}}
 
 " Mappings {{{
@@ -561,10 +560,13 @@ cnoremap <C-E> <END>
 " miscellaneous {{{
 nnoremap <silent> <leader>u guiw
 nnoremap <silent> <leader>U gUiw
-
+nnoremap <leader>rr :%s/\r//g<CR>
 
 nmap  <leader>T <Plug>Transposewords
 " miscellaneous }}}
+set t_BE=\e[?2004h
+set t_BD=\e[?2004l
+
 " }}}
 
 " Plugin Configs {{{

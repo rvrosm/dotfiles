@@ -10,4 +10,3 @@ decorations = "None"
 # startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
 startup_mode = "Maximized"
 option_as_alt = "Both"
-

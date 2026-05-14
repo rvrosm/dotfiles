@@ -1,3 +1,6 @@
+
+vim.opt.cmdheight = 0  -- nvim only config
+
 -- vim.opt.termguicolors = true -- Enable 24-bit RGB colors
 --
 vim.opt.number = true        -- Show line numbers

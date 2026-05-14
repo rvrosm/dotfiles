@@ -1,0 +1,104 @@
+{
+  "te": {
+    "prefix": "te",
+    "description": "template",
+    "body": [
+      "{{template $1 ${0:.}\\}\\}",
+      "{{end\\}\\}"
+    ]
+  },
+  "ti": {
+    "prefix": "ti",
+    "description": "template",
+    "body": "{{template $1 ${0:.}\\}\\} {{end\\}\\} "
+  },
+  "de": {
+    "prefix": "de",
+    "description": "define template",
+    "body": [
+      "{{define \"${1:name}\"\\}\\}",
+      "    ${0:{{.\\}\\}}",
+      "{{end\\}\\}"
+    ]
+  },
+  "di": {
+    "prefix": "di",
+    "description": "define template inline",
+    "body": [
+      "{{define \"${1:name}\"\\}\\} ${2:{{.\\}\\}}{{end\\}\\}",
+      "$0"
+    ]
+  },
+  "if": {
+    "prefix": "if",
+    "description": "if ... end",
+    "body": [
+      "{{if (${1:condition})\\}\\}",
+      "    ${0:$TM_SELECTED_TEXT}",
+      "{{end\\}\\}"
+    ]
+  },
+  "ii": {
+    "prefix": "ii",
+    "description": "if ... end inline",
+    "body": [
+      "{{if (${1:condition})\\}\\}${1:$TM_SELECTED_TEXT}{{end\\}\\}",
+      "$0"
+    ]
+  },
+  "ie": {
+    "prefix": "ie",
+    "description": "if ... else ... end",
+    "body": [
+      "{{if ${1:condition})\\}\\}",
+      "    ${2:$TM_SELECTED_TEXT}",
+      "{{else\\}\\}",
+      "    ${0:todo}",
+      "{{end\\}\\}"
+    ]
+  },
+  "iei": {
+    "prefix": "iei",
+    "description": "if ... else ... end inline",
+    "body": [
+      "{{if ${1:condition})\\}\\} ${2:$TM_SELECTED_TEXT} {{else\\}\\} ${0:todo} {{end\\}\\}",
+      "$0"
+    ]
+  },
+  "wi": {
+    "prefix": "wi",
+    "description": "with ... end",
+    "body": [
+      "{{with ${1:.value}\\}\\}",
+      "    ${0:{{.\\}\\}}",
+      "{{end\\}\\}"
+    ]
+  },
+  "wii": {
+    "prefix": "wii",
+    "description": "with ... end inline",
+    "body": [
+      "{{with ${1:.value}\\}\\} ${0:{{.\\}\\}} {{end\\}\\}",
+      "$0"
+    ]
+  },
+  "ra": {
+    "prefix": "ra",
+    "description": "range ... end inline",
+    "body": [
+      "{{range ${1:.value}\\}\\} ",
+      "    ${0:{{.\\}\\}} ",
+      "{{end\\}\\}"
+    ]
+  },
+  "e": {
+    "prefix": "e",
+    "description": "{{end}}",
+    "body": "{{end\\}\\} $0"
+  },
+  ".": {
+    "prefix": ".",
+    "description": "{{VISUAL}}",
+    "body": "{{${0:${TM_SELECTED_TEXT:.}}\\}\\}"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "fn": {
+    "prefix": "fn",
+    "description": "(defn fn_name...)",
+    "body": [
+      "(defn ${1:fn_name}",
+      "  $2",
+      ")"
+    ]
+  },
+  "p": {
+    "prefix": "p",
+    "description": "(print ...)",
+    "body": [
+      "(print $1)",
+      "$0"
+    ]
+  },
+  "doc": {
+    "prefix": "doc",
+    "description": "(doc ...)",
+    "body": [
+      "(doc $1)",
+      "$0"
+    ]
+  }
+}

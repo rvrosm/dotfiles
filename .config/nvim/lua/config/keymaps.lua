@@ -44,7 +44,7 @@ vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 vim.keymap.set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-vim.keymap.set("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+vim.keymap.set("n", "<leader>bd", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
@@ -131,7 +131,6 @@ vim.keymap.set("n", "<C-n>", ":tabnext<CR>", { desc = "Next tab" })
 vim.keymap.set("n", "<C-p>", ":tabprevious<CR>", { desc = "Previous tab" })
 
 -- scroll
-vim.keymap.set("n", "<space>", "", { desc = "Previous tab" })
 vim.keymap.set("n", "<C-j>", "<C-d>") -- half page down
 vim.keymap.set("n", "<C-k>", "<C-u>") -- half page up
 vim.keymap.set("n", "<space>", "<C-d>", { silent = true }) -- half page down

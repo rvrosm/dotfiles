@@ -1,0 +1,490 @@
+{
+  ":": {
+    "prefix": ":",
+    "description": "name := value",
+    "body": "$1 := $0"
+  },
+  "=": {
+    "prefix": "=",
+    "description": "name = value",
+    "body": "$1 = $0"
+  },
+  "+=": {
+    "prefix": "+=",
+    "description": "name += value",
+    "body": "$1 += $0"
+  },
+  "-=": {
+    "prefix": "-=",
+    "description": "name -= value",
+    "body": "$1 -= $0"
+  },
+  "*=": {
+    "prefix": "*=",
+    "description": "name *= value",
+    "body": "$1 -= $0"
+  },
+  "/=": {
+    "prefix": "/=",
+    "description": "name /= value",
+    "body": "$1 /= $0"
+  },
+  "eq": {
+    "prefix": "eq",
+    "description": "name == value",
+    "body": "$1 == $0"
+  },
+  "ne": {
+    "prefix": "ne",
+    "description": "name != value",
+    "body": "$1 != $0"
+  },
+  "lt": {
+    "prefix": "lt",
+    "description": "name < value",
+    "body": "$1 < $0"
+  },
+  "le": {
+    "prefix": "le",
+    "description": "name <= value",
+    "body": "$1 <= $0"
+  },
+  "gt": {
+    "prefix": "gt",
+    "description": "name > value",
+    "body": "$1 > $0"
+  },
+  "ge": {
+    "prefix": "ge",
+    "description": "name >= value",
+    "body": "$1 >= $0"
+  },
+  "br": {
+    "prefix": "br",
+    "description": "break",
+    "body": "break "
+  },
+  "ca": {
+    "prefix": "ca",
+    "description": "case ...:",
+    "body": [
+      "case ${1:value}:",
+      "\t${0:$TM_SELECTED_TEXT}"
+    ]
+  },
+  "cr": {
+    "prefix": "cr",
+    "description": "char",
+    "body": "char ${0:char}"
+  },
+  "cos": {
+    "prefix": "cos",
+    "description": "const ( ... )",
+    "body": [
+      "const (",
+      "\t${1:NAME_type} = ${2:value}",
+      "\t$0",
+      ")"
+    ]
+  },
+  "ci": {
+    "prefix": "ci",
+    "description": "const ( ... = iota )",
+    "body": [
+      "const (",
+      "\t${1:NAME} ${2:Type} = iota",
+      "\t$0",
+      ")"
+    ]
+  },
+  "cn": {
+    "prefix": "cn",
+    "description": "continue",
+    "body": "continue"
+  },
+  "de": {
+    "prefix": "de",
+    "description": "default: ...",
+    "body": [
+      "default:",
+      "\t${0:$TM_SELECTED_TEXT}"
+    ]
+  },
+  "df": {
+    "prefix": "df",
+    "description": "defer someFunction()",
+    "body": "defer ${1:func}"
+  },
+  "fs": {
+    "prefix": "fs",
+    "description": "for select",
+    "body": [
+      "for {",
+      "    select {",
+      "\tcase ${2:${1:result} := }<- ${3:channel}:",
+      "\t    $0",
+      "    \\}",
+      "\\}"
+    ]
+  },
+  "sl": {
+    "prefix": "sl",
+    "description": "select {case ...}",
+    "body": [
+      "select {",
+      "    case ${2:${1:result} := }<- ${3:channel}:",
+      "\t$0",
+      "\\}"
+    ]
+  },
+  "if": {
+    "prefix": "if",
+    "description": "if ... { ... }",
+    "body": [
+      "if ${1:condition} {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "i;": {
+    "prefix": "i;",
+    "description": "if; ... { ... }",
+    "body": [
+      "if ${1:_, ok} := ${2:map[key]}; ${3:condition} {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "el": {
+    "prefix": "el",
+    "description": "else { ... }",
+    "body": [
+      "else {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "en": {
+    "prefix": "en",
+    "description": "enum",
+    "body": "enum "
+  },
+  "ex": {
+    "prefix": "ex",
+    "description": "extern",
+    "body": "extern "
+  },
+  "ie": {
+    "prefix": "ie",
+    "description": "if ... else ...",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2:$TM_SELECTED_TEXT}",
+      "\\} else {",
+      "\t$0",
+      "\\}"
+    ]
+  },
+  "iei": {
+    "prefix": "iei",
+    "description": "if ... else if ...",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2:$TM_SELECTED_TEXT}",
+      "\\} else if ${3:condition} {",
+      "\t$0",
+      "\\}"
+    ]
+  },
+  "r": {
+    "prefix": "r",
+    "description": "return",
+    "body": "return "
+  },
+  "re": {
+    "prefix": "re",
+    "description": "return err",
+    "body": "return err"
+  },
+  "rn": {
+    "prefix": "rn",
+    "description": "return nil",
+    "body": "return nil"
+  },
+  "r,": {
+    "prefix": "r,",
+    "description": "return nil, err",
+    "body": "return ${1:nil}, ${2:err}"
+  },
+  "ra": {
+    "prefix": "ra",
+    "description": "range",
+    "body": "range "
+  },
+  "rk": {
+    "prefix": "rk",
+    "description": "for v := range items { ... }",
+    "body": [
+      "for ${2:k} := range $1 {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "rv": {
+    "prefix": "rv",
+    "description": "for k, v := range items { ... }",
+    "body": [
+      "for _, ${2:v} := range $1 {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "sw": {
+    "prefix": "sw",
+    "description": "switch x { ... }",
+    "body": [
+      "switch ${1:var} {",
+      "case ${2:value1}:",
+      "    $3",
+      "default:",
+      "    $0",
+      "\\}"
+    ]
+  },
+  "ma": {
+    "prefix": "ma",
+    "description": "map[Type]Type",
+    "body": "map[${1:string}]${0:string}"
+  },
+  "pa": {
+    "prefix": "pa",
+    "description": "package ...",
+    "body": [
+      "// Package $1 provides ${2:...}",
+      "package ${1:main}",
+      "$0"
+    ]
+  },
+  "s": {
+    "prefix": "s",
+    "description": "type T struct { ... }",
+    "body": [
+      "type ${1:Type} struct {",
+      "    ${0:/* TODO: add fields */}",
+      "\\}"
+    ]
+  },
+  "ty": {
+    "prefix": "ty",
+    "description": "type",
+    "body": "type"
+  },
+  "st": {
+    "prefix": "st",
+    "description": "struct",
+    "body": "struct{$0\\}"
+  },
+  "in": {
+    "prefix": "in",
+    "description": "interface",
+    "body": "interface{$0\\}"
+  },
+  "v": {
+    "prefix": "v",
+    "description": "var x Type",
+    "body": "var ${0:name_type}"
+  },
+  "vv": {
+    "prefix": "vv",
+    "description": "var x Type = value",
+    "body": "var ${1:name_type} = ${0:value}"
+  },
+  "vs": {
+    "prefix": "vs",
+    "description": "var ( name type = value )",
+    "body": [
+      "var (",
+      "    ${0:name}",
+      ")"
+    ]
+  },
+  "sz": {
+    "prefix": "sz",
+    "description": "size_t",
+    "body": "size_t $0"
+  },
+  "c": {
+    "prefix": "c",
+    "description": "char",
+    "body": "char $0"
+  },
+  "sc": {
+    "prefix": "sc",
+    "description": "signed char",
+    "body": "signed char $0"
+  },
+  "uc": {
+    "prefix": "uc",
+    "description": "unsigned char",
+    "body": "unsigned char $0"
+  },
+  "co": {
+    "prefix": "co",
+    "description": "const",
+    "body": "const $0"
+  },
+  "i": {
+    "prefix": "i",
+    "description": "int",
+    "body": "int $0"
+  },
+  "sn": {
+    "prefix": "sn",
+    "description": "signed",
+    "body": "signed $0"
+  },
+  "un": {
+    "prefix": "un",
+    "description": "unsigned",
+    "body": "unsigned $0"
+  },
+  "sh": {
+    "prefix": "sh",
+    "description": "short",
+    "body": "short $0"
+  },
+  "l": {
+    "prefix": "l",
+    "description": "long",
+    "body": "long $0"
+  },
+  "float": {
+    "prefix": "float",
+    "description": "float",
+    "body": "float $0"
+  },
+  "db": {
+    "prefix": "db",
+    "description": "double",
+    "body": "double $0"
+  },
+  "iio": {
+    "prefix": "iio",
+    "description": "#include <stdio.h>",
+    "body": [
+      "#include <stdio.h>",
+      "$0"
+    ]
+  },
+  "pf": {
+    "prefix": "pf",
+    "description": "printf()",
+    "body": "printf(\"$1\\n\", $2);"
+  },
+  "ili": {
+    "prefix": "ili",
+    "description": "#include <stdlib.h>",
+    "body": [
+      "#include <stdlib.h>",
+      "$0"
+    ]
+  },
+  "isr": {
+    "prefix": "isr",
+    "description": "#include <string.h>",
+    "body": [
+      "#include <string.h>",
+      "$0"
+    ]
+  },
+  "ifl": {
+    "prefix": "ifl",
+    "description": "#include <float.h>",
+    "body": [
+      "#include <float.h>",
+      "$0"
+    ]
+  },
+  "def": {
+    "prefix": "def",
+    "description": "#define ...",
+    "body": "#define $1",
+    "luasnip": {
+      "priority": -50
+    }
+  },
+  "#if": {
+    "prefix": "#if",
+    "description": "#if #endif",
+    "body": [
+      "#if ${1:0}",
+      "$TM_SELECTED_TEXT$0",
+      "#endif"
+    ]
+  },
+  "mark": {
+    "prefix": "mark",
+    "description": "#pragma mark (mark)",
+    "body": [
+      "#if 0",
+      "${1:#pragma mark -",
+      "}#pragma mark $2",
+      "#endif",
+      "",
+      "$0"
+    ]
+  },
+  "main": {
+    "prefix": "main",
+    "description": "main() (main)",
+    "body": [
+      "int main(int argc, char *argv[])",
+      "{",
+      "\t$TM_SELECTED_TEXT$0",
+      "\treturn 0;",
+      "\\}"
+    ]
+  },
+  "for": {
+    "prefix": "for",
+    "description": "for loop (for)",
+    "body": [
+      "for (${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {",
+      "\t$TM_SELECTED_TEXT$0",
+      "\\}"
+    ]
+  },
+  "fori": {
+    "prefix": "fori",
+    "description": "for int loop (fori)",
+    "body": [
+      "for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {",
+      "\t$TM_SELECTED_TEXT$0",
+      "\\}"
+    ]
+  },
+  "eli": {
+    "prefix": "eli",
+    "description": "else if .. (eli)",
+    "body": [
+      "else if (${1:/* condition */}) {",
+      "\t$TM_SELECTED_TEXT$0",
+      "\\}"
+    ]
+  },
+  "fn": {
+    "prefix": "fn",
+    "description": "function",
+    "body": [
+      "${1:void} ${2:function_name}($3)",
+      "{",
+      "\t$TM_SELECTED_TEXT$0",
+      "\\}"
+    ]
+  },
+  "fund": {
+    "prefix": "fund",
+    "description": "function declaration",
+    "body": "${1:void} ${2:function_name}($3);"
+  }
+}

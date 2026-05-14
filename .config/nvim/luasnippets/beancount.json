@@ -1,0 +1,127 @@
+{
+  "ed": {
+    "prefix": "ed",
+    "description": "Equity:Discounts:GiftCards",
+    "body": "Equity:Discounts:GiftCards"
+  },
+  "ar": {
+    "prefix": "ar",
+    "description": "AccountsReceivable",
+    "body": "Assets:AccountsReceivable $1 USD"
+  },
+  "lr": {
+    "prefix": "lr",
+    "description": "Liabilities:Refund",
+    "body": "Liabilities:Refund "
+  },
+  "T": {
+    "prefix": "T",
+    "description": "Tips",
+    "body": "Expenses:Services:Tips $1 USD"
+  },
+  "tl": {
+    "prefix": "tl",
+    "description": "Tools",
+    "body": "Expenses:Tools $1 USD"
+  },
+  "fI": {
+    "prefix": "fI",
+    "description": "Icecream",
+    "body": "Expenses:Food:Icecream $1 USD"
+  },
+  "fi": {
+    "prefix": "fi",
+    "description": "InstantFood",
+    "body": "Expenses:Food:HomeFoods:InstantFood $1 USD"
+  },
+  "fb": {
+    "prefix": "fb",
+    "description": "Bread",
+    "body": "Expenses:Food:HomeFoods:Bread $1 USD"
+  },
+  "fL": {
+    "prefix": "fL",
+    "description": "Liquor",
+    "body": "Expenses:Food:Drinks:Liquor $1 USD"
+  },
+  "fm": {
+    "prefix": "fm",
+    "description": "Milk",
+    "body": "Expenses:Food:HomeFoods:Milk ${1:1.5} GALMILK {{ ${2:12.99} USD \\}\\}"
+  },
+  "fM": {
+    "prefix": "fM",
+    "description": "Meat",
+    "body": "Expenses:Food:HomeFoods:Meat $1  USD"
+  },
+  "fe": {
+    "prefix": "fe",
+    "description": "Eggs",
+    "body": "Expenses:Food:HomeFoods:Eggs    ${1:24} EGG  {{${2:4.89} USD\\}\\}"
+  },
+  "fh": {
+    "prefix": "fh",
+    "description": "HomeFoods",
+    "body": "Expenses:Food:HomeFoods:Others $1 USD"
+  },
+  "fd": {
+    "prefix": "fd",
+    "description": "Deli",
+    "body": "Expenses:Food:HomeFoods:Deli $1 USD"
+  },
+  "fp": {
+    "prefix": "fp",
+    "description": "Produce",
+    "body": "Expenses:Food:HomeFoods:Produce $1 USD"
+  },
+  "ff": {
+    "prefix": "ff",
+    "description": "Fruits",
+    "body": "Expenses:Food:HomeFoods:Fruits $1 USD"
+  },
+  "fs": {
+    "prefix": "fs",
+    "description": "Snacks",
+    "body": "Expenses:Food:Snacks $0 USD"
+  },
+  "fr": {
+    "prefix": "fr",
+    "description": "Expenses",
+    "body": "Expenses:Food:Restaurants:Dining $0 USD"
+  },
+  "fF": {
+    "prefix": "fF",
+    "description": "Fastfood",
+    "body": "Expenses:Food:Restaurants:Fastfood $0 USD"
+  },
+  "td": {
+    "prefix": "td",
+    "description": "Target Discounts",
+    "body": "Expenses:US:Target:Reloadable:Discounts -$1 USD"
+  },
+  "b": {
+    "prefix": "b",
+    "description": "Bags",
+    "body": "Expenses:Groceries:PlasticBags 0.1 USD"
+  },
+  "U": {
+    "prefix": "U",
+    "description": "USD",
+    "body": "USD"
+  },
+  "C": {
+    "prefix": "C",
+    "description": "Cash",
+    "body": "Assets:Cash "
+  },
+  "st": {
+    "prefix": "st",
+    "description": "SalesTax",
+    "body": "Expenses:Taxes:SalesTax $0 USD"
+  },
+  "eti": {
+    "prefix": "eti",
+    "description": "Equity:Transfer:Investments",
+    "body": "Equity:Transfer:Investments"
+  }
+}

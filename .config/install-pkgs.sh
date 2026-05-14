@@ -33,16 +33,16 @@ echo "[install-pkgs] detected: $DIST"
 # -----------------------------
 # package lists
 # -----------------------------
-PKGS_COMMON=(base-devel git gnupg openssh 
-    curl rsync wget 
-    zip unzip fd ripgrep fzf atuin duf
+PKGS_COMMON=(base-devel git gnupg openssh curl rsync wget  zip unzip 
+    fd ripgrep fzf atuin duf
     lsof iotop bc tree jq 
-    direnv tmux screen starship zsh alacritty zsh vim neovim
+    direnv tmux screen starship zsh alacritty zsh vim 
+    neovim tree-sitter-cli
     nodejs npm go rust python 
 )
 
 # Arch AUR only
-PKGS_AUR=( atuin duf)
+PKGS_AUR=( )
 
 # Ubuntu-specific adjustments (optional)
 PKGS_UBUNTU_EXTRA=()

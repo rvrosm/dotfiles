@@ -1,0 +1,868 @@
+{
+  ":": {
+    "prefix": ":",
+    "description": "name := value",
+    "body": "$1 := $0"
+  },
+  "=": {
+    "prefix": "=",
+    "description": "name = value",
+    "body": "$1 = $0"
+  },
+  "+=": {
+    "prefix": "+=",
+    "description": "name += value",
+    "body": "$1 += $0"
+  },
+  "-=": {
+    "prefix": "-=",
+    "description": "name -= value",
+    "body": "$1 -= $0"
+  },
+  "*=": {
+    "prefix": "*=",
+    "description": "name *= value",
+    "body": "$1 -= $0"
+  },
+  "/=": {
+    "prefix": "/=",
+    "description": "name /= value",
+    "body": "$1 /= $0"
+  },
+  "eq": {
+    "prefix": "eq",
+    "description": "name == value",
+    "body": "$1 == $0"
+  },
+  "ne": {
+    "prefix": "ne",
+    "description": "name != value",
+    "body": "$1 != $0"
+  },
+  "lt": {
+    "prefix": "lt",
+    "description": "name < value",
+    "body": "$1 < $0"
+  },
+  "le": {
+    "prefix": "le",
+    "description": "name <= value",
+    "body": "$1 <= $0"
+  },
+  "gt": {
+    "prefix": "gt",
+    "description": "name > value",
+    "body": "$1 > $0"
+  },
+  "ge": {
+    "prefix": "ge",
+    "description": "name >= value",
+    "body": "$1 >= $0"
+  },
+  "br": {
+    "prefix": "br",
+    "description": "break",
+    "body": "break "
+  },
+  "ca": {
+    "prefix": "ca",
+    "description": "case ...:",
+    "body": [
+      "case ${1:value}:",
+      "\t${0:$TM_SELECTED_TEXT}"
+    ]
+  },
+  "ch": {
+    "prefix": "ch",
+    "description": "chan Type",
+    "body": "chan ${0:int}"
+  },
+  "co": {
+    "prefix": "co",
+    "description": "const XXX Type = ...",
+    "body": "const ${1:NAME_Type} = ${0:value}"
+  },
+  "cos": {
+    "prefix": "cos",
+    "description": "const ( ... )",
+    "body": [
+      "const (",
+      "\t${1:NAME_type} = ${2:value}",
+      "\t$0",
+      ")"
+    ]
+  },
+  "ci": {
+    "prefix": "ci",
+    "description": "const ( ... = iota )",
+    "body": [
+      "const (",
+      "\t${1:NAME} ${2:Type} = iota",
+      "\t$0",
+      ")"
+    ]
+  },
+  "cn": {
+    "prefix": "cn",
+    "description": "continue",
+    "body": "continue"
+  },
+  "de": {
+    "prefix": "de",
+    "description": "default: ...",
+    "body": [
+      "default:",
+      "\t${0:$TM_SELECTED_TEXT}"
+    ]
+  },
+  "df": {
+    "prefix": "df",
+    "description": "defer someFunction()",
+    "body": "defer ${1:func}"
+  },
+  "fs": {
+    "prefix": "fs",
+    "description": "for select",
+    "body": [
+      "for {",
+      "    select {",
+      "\tcase ${2:${1:result} := }<- ${3:channel}:",
+      "\t    $0",
+      "    \\}",
+      "\\}"
+    ]
+  },
+  "sl": {
+    "prefix": "sl",
+    "description": "select {case ...}",
+    "body": [
+      "select {",
+      "    case ${2:${1:result} := }<- ${3:channel}:",
+      "\t$0",
+      "\\}"
+    ]
+  },
+  "if": {
+    "prefix": "if",
+    "description": "if ... { ... }",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2:$TM_SELECTED_TEXT}",
+      "\\}",
+      "$0"
+    ]
+  },
+  "i;": {
+    "prefix": "i;",
+    "description": "if; ... { ... }",
+    "body": [
+      "if ${1:_, ok} := ${2:map[key]}; ${3:condition} {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "el": {
+    "prefix": "el",
+    "description": "else { ... }",
+    "body": [
+      "else {",
+      "\t${1:$TM_SELECTED_TEXT}",
+      "\\}",
+      "$0"
+    ]
+  },
+  "ie": {
+    "prefix": "ie",
+    "description": "if ... else ...",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2:$TM_SELECTED_TEXT}",
+      "\\} else {",
+      "\t$3",
+      "\\}",
+      "$0"
+    ]
+  },
+  "iei": {
+    "prefix": "iei",
+    "description": "if ... else if ...",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2:$TM_SELECTED_TEXT}",
+      "\\} else if ${3:condition} {",
+      "\t$3",
+      "\\}",
+      "$0"
+    ]
+  },
+  "r": {
+    "prefix": "r",
+    "description": "return",
+    "body": "return "
+  },
+  "rn": {
+    "prefix": "rn",
+    "description": "return nil",
+    "body": "return nil"
+  },
+  "r,": {
+    "prefix": "r,",
+    "description": "return nil, err",
+    "body": "return ${1:nil}, ${2:err}"
+  },
+  "ra": {
+    "prefix": "ra",
+    "description": "range",
+    "body": "range "
+  },
+  "rk": {
+    "prefix": "rk",
+    "description": "for v := range items { ... }",
+    "body": [
+      "for ${2:k} := range $1 {",
+      "\t${3:$TM_SELECTED_TEXT}",
+      "\\}",
+      "$0"
+    ]
+  },
+  "rv": {
+    "prefix": "rv",
+    "description": "for k, v := range items { ... }",
+    "body": [
+      "for _, ${2:v} := range $1 {",
+      "\t${3:$TM_SELECTED_TEXT}",
+      "\\}",
+      "$0"
+    ]
+  },
+  "sw": {
+    "prefix": "sw",
+    "description": "switch x { ... }",
+    "body": [
+      "switch ${1:var} {",
+      "case ${2:value1}:",
+      "    $3",
+      "default:",
+      "    $4",
+      "\\}",
+      "$0"
+    ]
+  },
+  "ma": {
+    "prefix": "ma",
+    "description": "map[Type]Type",
+    "body": "map[${1:string}]${0:string}"
+  },
+  "pa": {
+    "prefix": "pa",
+    "description": "package ...",
+    "body": [
+      "// Package $1 provides ${2:...}",
+      "package ${1:main}",
+      "$0"
+    ]
+  },
+  "ty": {
+    "prefix": "ty",
+    "description": "type",
+    "body": "type"
+  },
+  "st": {
+    "prefix": "st",
+    "description": "struct",
+    "body": "struct{$0\\}"
+  },
+  "in": {
+    "prefix": "in",
+    "description": "interface",
+    "body": "interface{$0\\}"
+  },
+  "v": {
+    "prefix": "v",
+    "description": "var x Type",
+    "body": "var ${0:name_type}"
+  },
+  "vv": {
+    "prefix": "vv",
+    "description": "var x Type = value",
+    "body": "var ${1:name_type} = ${0:value}"
+  },
+  "vs": {
+    "prefix": "vs",
+    "description": "var ( name type = value )",
+    "body": [
+      "var (",
+      "    ${0:name}",
+      ")"
+    ]
+  },
+  "ap": {
+    "prefix": "ap",
+    "description": "append(slice, value)",
+    "body": "append(${1:slice}, ${0:value})"
+  },
+  "cp": {
+    "prefix": "cp",
+    "description": "copy(any)",
+    "body": "copy(${0:any})"
+  },
+  "dl": {
+    "prefix": "dl",
+    "description": "delete(any)",
+    "body": "delete(${0:any})"
+  },
+  "l": {
+    "prefix": "l",
+    "description": "len(any)",
+    "body": "len(${0:any})"
+  },
+  "mk": {
+    "prefix": "mk",
+    "description": "make(any)",
+    "body": "make(${0:any})"
+  },
+  "pn": {
+    "prefix": "pn",
+    "description": "panic(err)",
+    "body": [
+      "panic(${1:err})",
+      "$0"
+    ]
+  },
+  "cm": {
+    "prefix": "cm",
+    "description": "comparable",
+    "body": "comparable"
+  },
+  "a": {
+    "prefix": "a",
+    "description": "any",
+    "body": "any"
+  },
+  "b": {
+    "prefix": "b",
+    "description": "byte",
+    "body": "byte"
+  },
+  "i": {
+    "prefix": "i",
+    "description": "int",
+    "body": "int"
+  },
+  "u": {
+    "prefix": "u",
+    "description": "uint",
+    "body": "uint"
+  },
+  "s": {
+    "prefix": "s",
+    "description": "string",
+    "body": "string"
+  },
+  "t": {
+    "prefix": "t",
+    "description": "true",
+    "body": "true"
+  },
+  "f": {
+    "prefix": "f",
+    "description": "false",
+    "body": "false"
+  },
+  "n": {
+    "prefix": "n",
+    "description": "nil",
+    "body": "nil"
+  },
+  "fl": {
+    "prefix": "fl",
+    "description": "float",
+    "body": "float"
+  },
+  "[b": {
+    "prefix": "[b",
+    "description": "[]byte",
+    "body": "[]byte"
+  },
+  "[s": {
+    "prefix": "[s",
+    "description": "[]string",
+    "body": "[]string"
+  },
+  "[i": {
+    "prefix": "[i",
+    "description": "[]int",
+    "body": "[]int"
+  },
+  "[u": {
+    "prefix": "[u",
+    "description": "[]uint",
+    "body": "[]uint"
+  },
+  "[f": {
+    "prefix": "[f",
+    "description": "[]float",
+    "body": "[]float"
+  },
+  "e": {
+    "prefix": "e",
+    "description": "if err != nil { return  err }",
+    "body": [
+      "if err != nil {",
+      "    ${1:return err}",
+      "\\}",
+      "$0"
+    ]
+  },
+  "e,": {
+    "prefix": "e,",
+    "description": "Error return with two return values",
+    "body": [
+      "if err != nil {",
+      "\treturn ${1:nil}, ${2:err}",
+      "\\}",
+      "$0"
+    ]
+  },
+  "eF": {
+    "prefix": "eF",
+    "description": "if err != nil { log.Fatal(err)}",
+    "body": [
+      "if err != nil {",
+      "\tlog.Fatal(err)",
+      "\\}",
+      "$0"
+    ]
+  },
+  "ep": {
+    "prefix": "ep",
+    "description": "if err != nil { log.Println(err)}",
+    "body": [
+      "if err != nil {",
+      "\tlog.Println(err)",
+      "\\}",
+      "$0"
+    ]
+  },
+  "etf": {
+    "prefix": "etf",
+    "description": "if err != nil { t.Fatal(err)",
+    "body": [
+      "if err != nil {",
+      "    t.Fatal(${1:err})",
+      "\\}",
+      "$0"
+    ]
+  },
+  "fn": {
+    "prefix": "fn",
+    "description": "func Function(...) [error] { ... }",
+    "body": [
+      "// $1 ${4:DOC ...}",
+      "func ${1:name}(${2:params}) ${3:error} {",
+      "    ${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "af": {
+    "prefix": "af",
+    "description": "func(){ ... }",
+    "body": [
+      "func() { ",
+      "    ${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "aF": {
+    "prefix": "aF",
+    "description": "func(with parameters) [error] { ... }",
+    "body": [
+      "func(${1:params}) ${2:error} { ",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "gf": {
+    "prefix": "gf",
+    "description": "func Function[generics] (...) [error] { ... }",
+    "body": [
+      "// $1 ${5:DOC ...}",
+      "func ${1:name}[${2:constraints}](${3:params}) ${4:error} {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "me": {
+    "prefix": "me",
+    "description": "func (self Type) Method(...) [error] { ... }",
+    "body": [
+      "// $3 ${6:DOC ...}",
+      "func (${1:receiver} ${2:type}) ${3:name}(${4:params}) ${5:error} {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  ".c": {
+    "prefix": ".c",
+    "description": ".Close()",
+    "body": ".Close()"
+  },
+  "bs": {
+    "prefix": "bs",
+    "description": "bytes",
+    "body": "bytes"
+  },
+  "b.": {
+    "prefix": "b.",
+    "description": "bytes",
+    "body": "bytes."
+  },
+  "ct": {
+    "prefix": "ct",
+    "description": "context",
+    "body": "context"
+  },
+  "c.": {
+    "prefix": "c.",
+    "description": "context",
+    "body": "context."
+  },
+  ".ct": {
+    "prefix": ".ct",
+    "description": ".Context()",
+    "body": ".Context()"
+  },
+  "c.wc": {
+    "prefix": "c.wc",
+    "description": "context.WithValue",
+    "body": "${1:ctx}.WithContext(${0:ctx})"
+  },
+  "c.wv": {
+    "prefix": "c.wv",
+    "description": "context.WithValue",
+    "body": "context.WithValue(${1:r.Context()}, ${2:key}, ${0:val})"
+  },
+  "es": {
+    "prefix": "es",
+    "description": "errors",
+    "body": "errors"
+  },
+  "e.": {
+    "prefix": "e.",
+    "description": "errors",
+    "body": "errors."
+  },
+  "eis": {
+    "prefix": "eis",
+    "description": "if errors.Is(err,...)",
+    "body": [
+      "if errors.Is(err,${1:some error}) {",
+      "    ${0:handle err}",
+      "\\}"
+    ]
+  },
+  "eas": {
+    "prefix": "eas",
+    "description": "if errors.As(err,...)",
+    "body": [
+      "if errors.As(err,${1:some error}) {",
+      "    ${0:handle err}",
+      "\\}"
+    ]
+  },
+  "pf": {
+    "prefix": "pf",
+    "description": "fmt.Printf(...)",
+    "body": "fmt.Printf(\"$1 = %+v\\n\", ${1:$TM_SELECTED_TEXT})"
+  },
+  "pl": {
+    "prefix": "pl",
+    "description": "fmt.Println(...)",
+    "body": "fmt.Println(\"${1:$TM_SELECTED_TEXT}\")"
+  },
+  "ef": {
+    "prefix": "ef",
+    "description": "fmt.Errorf(...)",
+    "body": "fmt.Errorf(\"${1:$TM_SELECTED_TEXT}\")"
+  },
+  "Ff": {
+    "prefix": "Ff",
+    "description": "fmt.Printf(...)",
+    "body": "fmt.Fprintf(${1:w},\"${2: = %+v\\n\"}, ${0:$TM_SELECTED_TEXT})"
+  },
+  "Fl": {
+    "prefix": "Fl",
+    "description": "fmt.Printf(...)",
+    "body": "fmt.Fprintln(${1:w}, ${0:$TM_SELECTED_TEXT})"
+  },
+  "hf": {
+    "prefix": "hf",
+    "description": "http.HandlerFunc",
+    "body": [
+      "// $1 ${2:DOC ...}",
+      "func ${1:HandlerFunc}(w http.ResponseWriter, r *http.Request) {",
+      "\t${0:fmt.Fprintln(w, \"hello world\")}",
+      "\\}"
+    ]
+  },
+  "hm": {
+    "prefix": "hm",
+    "description": "http.HandlerFunc method",
+    "body": [
+      "// $3 ${4:DOC ...}",
+      "func (${1:receiver} ${2:type}) ${3:HandlerFunc}(w http.ResponseWriter, r *http.Request) {",
+      "\t${0:fmt.Fprintln(w, \"hello world\")}",
+      "\\}"
+    ]
+  },
+  "mf": {
+    "prefix": "mf",
+    "description": "middleware",
+    "body": [
+      "// $1 ${2:DOC ...}",
+      "func ${1:myMiddleware}(h http.Handler) http.Handler {",
+      "\treturn http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {",
+      "\t\t${0:// TODO: Execute our middleware logic here...}",
+      "",
+      "\t\th.ServeHTTP(w, r) ",
+      "    \\})",
+      "\\}"
+    ]
+  },
+  "mm": {
+    "prefix": "mm",
+    "description": "func (self Type) middleware(h http.Handler) http.Handler",
+    "body": [
+      "// $3 ${4:DOC ...}",
+      "func (${1:receiver} ${2:type}) ${3:myMiddleware}(h http.Handler) http.Handler {",
+      "\treturn http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {",
+      "\t\t${0:// TODO: Execute our middleware logic here...}",
+      "",
+      "\t\th.ServeHTTP(w, r) ",
+      "\t\\})",
+      "\\}",
+      ""
+    ]
+  },
+  "h.": {
+    "prefix": "h.",
+    "description": "http.",
+    "body": "http."
+  },
+  "h.hf": {
+    "prefix": "h.hf",
+    "description": "call http.HandlerFunc",
+    "body": [
+      "http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {",
+      "\t${0:fmt.Fprintln(w, \"hello world\")}",
+      "\\})"
+    ]
+  },
+  "h.hl": {
+    "prefix": "h.hl",
+    "description": "http.Handler",
+    "body": "http.Handler"
+  },
+  "h.h": {
+    "prefix": "h.h",
+    "description": "http.Header",
+    "body": "http.Header"
+  },
+  "h.rq": {
+    "prefix": "h.rq",
+    "description": "http.Request",
+    "body": "http.Request"
+  },
+  "h.nrq": {
+    "prefix": "h.nrq",
+    "description": "http.NewRequest(...)",
+    "body": "http.NewRequest(http.${1:MethodGet},\"${2:/}\",${3:body})"
+  },
+  "h.rp": {
+    "prefix": "h.rp",
+    "description": "http.Response",
+    "body": "http.Response"
+  },
+  "h.g": {
+    "prefix": "h.g",
+    "description": "http.MethodGet",
+    "body": "http.MethodGet"
+  },
+  "h.p": {
+    "prefix": "h.p",
+    "description": "http.MethodPost",
+    "body": "http.MethodPost"
+  },
+  "h.ok": {
+    "prefix": "h.ok",
+    "description": "http.StatusOK",
+    "body": "http.StatusOK"
+  },
+  "h.nf": {
+    "prefix": "h.nf",
+    "description": "http.NotFound",
+    "body": "http.StatusNotFound"
+  },
+  "h.ise": {
+    "prefix": "h.ise",
+    "description": "http.StatusInternalServerError",
+    "body": "http.StatusInternalServerError"
+  },
+  "h.br": {
+    "prefix": "h.br",
+    "description": "http.StatusBadRequest",
+    "body": "http.StatusBadRequest"
+  },
+  "h.ue": {
+    "prefix": "h.ue",
+    "description": "http.StatusUnprocessableEntity",
+    "body": "http.StatusUnprocessableEntity"
+  },
+  "h.so": {
+    "prefix": "h.so",
+    "description": "http.StatusSeeOther",
+    "body": "http.StatusSeeOther"
+  },
+  "h.st": {
+    "prefix": "h.st",
+    "description": "http.StatusText(...)",
+    "body": "http.StatusText(${0:StatusCode})"
+  },
+  "h.rd": {
+    "prefix": "h.rd",
+    "description": "http.Redirect(w,r,url,code)",
+    "body": "http.Redirect(w,r,${1:url},http.StatusSeeOther)"
+  },
+  "ht.": {
+    "prefix": "ht.",
+    "description": "httptest.",
+    "body": "httptest."
+  },
+  "ht.nrr": {
+    "prefix": "ht.nrr",
+    "description": "httptest.NewRecorder()",
+    "body": "httptest.NewRecorder()"
+  },
+  "i.ra": {
+    "prefix": "i.ra",
+    "description": "io.ReadAll(...)",
+    "body": "io.ReadAll(${1:Reader})"
+  },
+  "o.rf": {
+    "prefix": "o.rf",
+    "description": "os.ReadFile",
+    "body": "os.ReadFile(${0:filename})"
+  },
+  "re": {
+    "prefix": "re",
+    "description": "regexp",
+    "body": "regexp"
+  },
+  "ss": {
+    "prefix": "ss",
+    "description": "strings",
+    "body": "strings"
+  },
+  "s.": {
+    "prefix": "s.",
+    "description": "strings",
+    "body": "strings."
+  },
+  "sv": {
+    "prefix": "sv",
+    "description": "strconv",
+    "body": "strconv"
+  },
+  "a2i": {
+    "prefix": "a2i",
+    "description": "strconv.Atoi(...)",
+    "body": "strconv.Atoi(${0:\"string\"})"
+  },
+  "sq.o": {
+    "prefix": "sq.o",
+    "description": "sql.Open(...)",
+    "body": "sql.Open(${1:driverName}, ${2:dataSourceName})$0"
+  },
+  "tm": {
+    "prefix": "tm",
+    "description": "time",
+    "body": "time"
+  },
+  "now": {
+    "prefix": "now",
+    "description": "time.Now()",
+    "body": "time.Now()"
+  },
+  "te": {
+    "prefix": "te",
+    "description": "testing",
+    "body": "testing"
+  },
+  "te.": {
+    "prefix": "te.",
+    "description": "testing",
+    "body": "testing."
+  },
+  "tf": {
+    "prefix": "tf",
+    "description": "func TestXYZ(t *testing.T) { ... }",
+    "body": [
+      "// Test$1 ${2:DOC ...}",
+      "func Test${1:Function}(t *testing.T) {",
+      "\t${0:$TM_SELECTED_TEXT}",
+      "\\}"
+    ]
+  },
+  "t.r": {
+    "prefix": "t.r",
+    "description": "call t.Run(XYZ, func(t *testing.T){ ... })",
+    "body": [
+      "t.Run(\"${1:name}\", func(t *testing.T){",
+      "    ${0:/* TODO: test */}",
+      "\\})"
+    ]
+  },
+  "tt": {
+    "prefix": "tt",
+    "description": "test table",
+    "body": [
+      "var tests = []struct{",
+      "    name string",
+      "    ${1:any}",
+      "\\}{",
+      "    {",
+      "\tname: \"${2:name}\",",
+      "\t${3:any_1},",
+      "    \\},",
+      "\\}",
+      "for _, v := range tests {",
+      "    t.Run(v.name, func(t *testing.T){",
+      "",
+      "    ${0:/* TODO: test_body */}",
+      "",
+      "    \\})",
+      "\\}"
+    ]
+  },
+  "Equal": {
+    "prefix": "Equal",
+    "description": "func Equal[T comparable](t *testing.T, actual, expected T)",
+    "body": [
+      "// Equal used for test ",
+      "func Equal[T comparable](t *testing.T, actual, expected T) {",
+      "",
+      "\tt.Helper()",
+      "",
+      "\tif actual != expected {",
+      "\t\tt.Errorf(\"actual: %v; expected: %v\", actual, expected)",
+      "\t\\}",
+      "",
+      "\\}"
+    ]
+  },
+  "u.v": {
+    "prefix": "u.v",
+    "description": "url.Values",
+    "body": "url.Values"
+  }
+}

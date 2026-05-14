@@ -1,0 +1,45 @@
+{
+  "`g": {
+    "prefix": "`g",
+    "description": "Codeblock of go",
+    "body": [
+      "```go",
+      "$1",
+      "```",
+      "$0"
+    ]
+  },
+  "`sql": {
+    "prefix": "`sql",
+    "description": "Codeblock of sql",
+    "body": [
+      "```sql",
+      "$0",
+      "```"
+    ]
+  },
+  "``": {
+    "prefix": "``",
+    "description": "Codeblock",
+    "body": [
+      "```${1:go}",
+      "$0",
+      "```"
+    ]
+  },
+  "tl": {
+    "prefix": "tl",
+    "description": "title",
+    "body": [
+      "# $1",
+      "",
+      "# Links",
+      "",
+      "* $2",
+      "",
+      "# Overview",
+      "",
+      "$0"
+    ]
+  }
+}

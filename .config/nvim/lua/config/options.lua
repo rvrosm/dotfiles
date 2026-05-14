@@ -6,6 +6,8 @@ vim.opt.signcolumn = "number"
 vim.opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
 vim.opt.pumborder = 'rounded'  -- Neovim 0.12: border on popup menus
 
+vim.opt.fillchars = { eob = " " }
+
 -- vim.opt.showmatch = true     -- Highlight matching parenthesis
 -- vim.opt.splitright = true    -- Split windows right to the current windows
 -- vim.opt.splitbelow = true    -- Split windows below to the current windows
@@ -22,10 +24,8 @@ vim.opt.pumborder = 'rounded'  -- Neovim 0.12: border on popup menus
 -- vim.opt.undodir = vim.fn.stdpath("data") .. "undo"
 --
 -- -- Indent Settings
--- -- I'm in the Spaces camp (sorry Tabs folks), so I'm using a combination of
--- -- settings to insert spaces all the time.
--- vim.opt.expandtab = true  -- expand tabs into spaces
--- vim.opt.shiftwidth = 2    -- number of spaces to use for each step of indent.
--- vim.opt.tabstop = 2       -- number of spaces a TAB counts for
--- vim.opt.autoindent = true -- copy indent from current line when starting a new line
--- vim.opt.wrap = true
+vim.opt.expandtab = true  -- expand tabs into spaces
+vim.opt.shiftwidth = 4    -- number of spaces to use for each step of indent.
+vim.opt.tabstop = 4       -- number of spaces a TAB counts for
+vim.opt.autoindent = true -- copy indent from current line when starting a new line
+vim.opt.wrap = true

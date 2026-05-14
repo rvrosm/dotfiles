@@ -28,7 +28,7 @@ return {
     -- C-k: Toggle signature help (if signature.enabled = true)
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = 'default' },
+    keymap = { preset = 'super-tab' },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = { documentation = { auto_show = false } },
@@ -42,7 +42,8 @@ return {
     -- See the fuzzy documentation for more information
     fuzzy = { implementation = "rust" },
 
-    snippets = { preset = "luasnip", }
+    -- Use a preset for snippets, check the snippets documentation for more information
+    snippets = { preset =  'luasnip' },
 
   },
 }

@@ -1,21 +1,11 @@
 return {
   {
-    "neovim/nvim-lspconfig", -- still needed for server configs
-    config = function()
+    "neovim/nvim-lspconfig",
 
-    -- lua
-      -- configure server
-      vim.lsp.config["lua_ls"] = {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-          },
-        },
-      }
-      -- enable server
-      vim.lsp.enable("lua_ls")
+    config = function()
+      vim.lsp.config["beancount"] = require("lsp.beancount")
+      vim.lsp.config["lua_ls"] = require("lsp.lua_ls")
+
     end,
   },
 }

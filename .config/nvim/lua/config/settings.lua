@@ -3,6 +3,9 @@
 vim.opt.number = true        -- Show line numbers
 vim.opt.signcolumn = "number"
 
+vim.opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
+vim.opt.pumborder = 'rounded'  -- Neovim 0.12: border on popup menus
+
 -- vim.opt.showmatch = true     -- Highlight matching parenthesis
 -- vim.opt.splitright = true    -- Split windows right to the current windows
 -- vim.opt.splitbelow = true    -- Split windows below to the current windows
@@ -14,8 +17,6 @@ vim.opt.signcolumn = "number"
 -- vim.opt.swapfile = false           -- Don't use swapfile
 -- vim.opt.ignorecase = true          -- Search case insensitive...
 -- vim.opt.smartcase = true           -- ... but not it begins with upper case
--- vim.opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
--- vim.opt.pumborder = 'rounded'  -- Neovim 0.12: border on popup menus
 --
 -- vim.opt.undofile = true
 -- vim.opt.undodir = vim.fn.stdpath("data") .. "undo"

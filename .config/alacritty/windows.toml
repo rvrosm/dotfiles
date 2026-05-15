@@ -6,7 +6,9 @@ size = 12
 normal = { family = "JetBrainsMono Nerd Font" }
 
 [window]
-decorations = "None"
+# decorations = "Full" | "None" | "Transparent" | "Buttonless"
+decorations = "Full"
 # startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
-startup_mode = "Maximized"
+startup_mode = "Windowed"
 option_as_alt = "Both"
+dimensions = { columns = 150, lines = 50 }

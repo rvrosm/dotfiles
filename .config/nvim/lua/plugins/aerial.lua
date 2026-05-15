@@ -16,7 +16,7 @@ return {
     },
 
     keys = {
-      { "<leader>a", "<cmd>AerialToggle!<CR>", desc = "Toggle Aerial" },
+      { "<leader>2", "<cmd>AerialToggle!<CR>", desc = "Toggle Aerial" },
     },
 
   },

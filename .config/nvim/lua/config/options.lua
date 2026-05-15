@@ -19,9 +19,9 @@ vim.opt.fillchars = { eob = " " }
 --
 -- vim.opt.mouse = 'a'                -- Enable mouse support
 -- vim.opt.clipboard = 'unnamedplus'  -- Copy/paste to system clipboard
--- vim.opt.swapfile = false           -- Don't use swapfile
--- vim.opt.ignorecase = true          -- Search case insensitive...
--- vim.opt.smartcase = true           -- ... but not it begins with upper case
+vim.opt.swapfile = false           -- Don't use swapfile
+vim.opt.ignorecase = true          -- Search case insensitive...
+vim.opt.smartcase = true           -- ... but not it begins with upper case
 --
 -- vim.opt.undofile = true
 -- vim.opt.undodir = vim.fn.stdpath("data") .. "undo"

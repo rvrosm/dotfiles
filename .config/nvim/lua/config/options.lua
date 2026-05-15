@@ -1,6 +1,6 @@
 vim.opt.cmdheight = 0  -- nvim only config
 
--- vim.opt.termguicolors = true -- Enable 24-bit RGB colors
+vim.opt.termguicolors = true -- Enable 24-bit RGB colors
 --
 vim.opt.number = true        -- Show line numbers
 vim.opt.signcolumn = "number"
@@ -9,6 +9,10 @@ vim.opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
 vim.opt.pumborder = 'rounded'  -- Neovim 0.12: border on popup menus
 
 vim.opt.fillchars = { eob = " " }
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
 
 -- vim.opt.showmatch = true     -- Highlight matching parenthesis
 -- vim.opt.splitright = true    -- Split windows right to the current windows

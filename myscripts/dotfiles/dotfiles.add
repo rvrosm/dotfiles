@@ -33,11 +33,9 @@ dotfiles add $HOME/.vimrc
 dotfiles add $HOME/.vim/UltiSnips/
 dotfiles add $HOME/.vim/myplugin/
 dotfiles add $HOME/.vim/coc-settings.json
-dotfiles add $HOME/.config/vim/
 
 # tmux
 dotfiles add $HOME/.tmux.conf
-dotfiles add $HOME/.config/tmux/
 
 # zsh
 dotfiles add $HOME/.zshrc

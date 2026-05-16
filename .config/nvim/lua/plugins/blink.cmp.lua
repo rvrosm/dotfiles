@@ -32,7 +32,7 @@ return {
     --
 
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = 'super-tab' },
+    keymap = { preset = 'enter' },
 
     completion = {
     documentation = { auto_show = true, auto_show_delay_ms = 500 },

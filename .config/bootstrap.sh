@@ -44,9 +44,14 @@ else
   BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y-%m-%d_%H-%M-%S)"
   mkdir -p "$BACKUP_DIR"
 
-  sed -n 's/^\s\+\(.*\)$/\1/p' /tmp/dotfiles-checkout.log | while read -r file; do
-    mkdir -p "$BACKUP_DIR/$(dirname "$file")"
-    mv "$HOME/$file" "$BACKUP_DIR/$file"
+  sed -n 's/^[[:space:]]\+\(.*\)$/\1/p' /tmp/dotfiles-checkout.log | while read -r file; do
+  src="$HOME/$file"
+  dst="$BACKUP_DIR/$file"
+
+  [[ -e "$src" ]] || continue
+
+  mkdir -p "$(dirname "$dst")"
+  mv "$src" "$dst"
   done
 
   echo "[bootstrap] retry checkout"

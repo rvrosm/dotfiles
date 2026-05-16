@@ -79,13 +79,15 @@ setopt NOFLOWCONTROL
 # Aliases {{{
 # dotfiles
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-# git {{{
-
+# --- git ---
 alias Gc='git clone'
 alias Gm='git commit'
 alias Gp='git push'
 alias Gl='git pull'
-# git }}}
+
+# --- vim ---
+alias nv=nvim
+
 # K8s {{{
 alias k=kubectl
 alias ka='kubectl get pods -A'

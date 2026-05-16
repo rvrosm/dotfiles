@@ -5,7 +5,7 @@ vim.opt.termguicolors = true -- Enable 24-bit RGB colors
 vim.opt.number = true        -- Show line numbers
 vim.opt.signcolumn = "number"
 
-vim.opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
+-- vim.opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
 vim.opt.pumborder = 'rounded'  -- Neovim 0.12: border on popup menus
 
 vim.opt.fillchars = { eob = " " }

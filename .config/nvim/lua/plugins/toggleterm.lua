@@ -22,10 +22,10 @@ return {
 
 keys = {
 
-  { "<leader>te", "<cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
-  { "<leader>t1", "<cmd>ToggleTerm 1<CR>", desc = "Terminal 1" },
-  { "<leader>t2", "<cmd>ToggleTerm 2<CR>", desc = "Terminal 2" },
-  { "<leader>t3", "<cmd>ToggleTerm 3<CR>", desc = "Terminal 3" },
+  { "<leader>t", "<cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
+  { "<leader>1", "<cmd>ToggleTerm 1<CR>", desc = "Terminal 1" },
+  { "<leader>2", "<cmd>ToggleTerm 2<CR>", desc = "Terminal 2" },
+  { "<leader>3", "<cmd>ToggleTerm 3<CR>", desc = "Terminal 3" },
 },
 
 

@@ -33,13 +33,23 @@ fi
 # vim plugins
 # -----------------------------
 echo "[install] installing vim plugins"
-vim -es -u ~/.vimrc -i NONE +PlugInstall +qall
 
+# IMPORTANT: prevent set -e from killing script
+if ! vim -es -u ~/.vimrc -i NONE +PlugInstall +qall; then
+  echo "[install] vim plugin install had issues (continuing)"
+fi
 
 # -----------------------------
 # nvim (lazy.nvim)
 # -----------------------------
-echo "[install] installing nvim plugins (lazy)"
-nvim --headless "+Lazy! sync" +qa
+if command -v nvim >/dev/null 2>&1; then
+  echo "[install] installing nvim plugins (lazy)"
+
+  # also non-fatal
+  if ! nvim --headless "+Lazy! sync" +qa; then
+    echo "[install] nvim plugin install had issues (continuing)"
+  fi
+fi
+
 
 echo "[install] done ✅"

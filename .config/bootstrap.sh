@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
+# bootstrap.sh      → clone + checkout only
+# install.sh        → orchestrator (install + init + vim + nvim)
+# install-pkgs.sh   → packages only
+# init.sh           → config + linking
 
 echo "[bootstrap] start"
 
@@ -61,16 +65,11 @@ dotfiles checkout
 
 dotfiles config status.showUntrackedFiles no
 
-# -----------------------------
-# install packages
-# -----------------------------
-"$HOME/.config/install-pkgs.sh"
 
 # -----------------------------
-# apply configs
+# run full install pipeline ✅
 # -----------------------------
-"$HOME/.config/init.sh"
-
+"$HOME/.config/install.sh"
 
 echo "[bootstrap] done ✅"
 

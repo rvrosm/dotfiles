@@ -35,4 +35,15 @@ fi
 echo "[install] installing vim plugins"
 vim -es -u ~/.vimrc -i NONE +PlugInstall +qall
 
+
+# -----------------------------
+# nvim (lazy.nvim)
+# -----------------------------
+if command -v nvim >/dev/null 2>&1; then
+  echo "[install] installing nvim plugins (lazy)"
+
+  nvim --headless "+Lazy! sync" +qa || true
+fi
+
+
 echo "[install] done ✅"

@@ -45,3 +45,10 @@ dotfiles config status.showUntrackedFiles no
 
 
 echo "[bootstrap] done ✅"
+
+
+echo
+echo "[info] optional: switch git remote to SSH for push access"
+echo "  dotfiles remote set-url origin git@github.com:rvrosm/dotfiles.git"
+echo
+

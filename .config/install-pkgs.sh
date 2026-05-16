@@ -72,12 +72,19 @@ map_pkgs() {
 
 mapped=($(map_pkgs "${PKGS_COMMON[@]}"))
 
+# detect privilege once
+if [[ "$EUID" -eq 0 ]]; then
+  SUDO=""
+else
+  SUDO="sudo"
+fi
+
 # -----------------------------
 # helpers
 # -----------------------------
 install_pacman() {
-  sudo pacman -Sy --noconfirm
-  sudo pacman -S --needed --noconfirm "$@"
+  $SUDO pacman -Sy --noconfirm
+  $SUDO pacman -S --needed --noconfirm "$@"
 }
 
 install_aur() {
@@ -85,7 +92,7 @@ install_aur() {
   if ! command -v yay >/dev/null 2>&1; then
     echo "[install-pkgs] installing yay (AUR helper)"
 
-    sudo pacman -S --needed --noconfirm git base-devel
+    $SUDO pacman -S --needed --noconfirm git base-devel
     tmp=$(mktemp -d)
     git clone https://aur.archlinux.org/yay.git "$tmp/yay"
     cd "$tmp/yay"
@@ -98,8 +105,8 @@ install_aur() {
 }
 
 install_apt() {
-  sudo apt update
-  sudo apt install -y "$@"
+  $SUDO apt update
+  $SUDO apt install -y "$@"
 }
 
 install_brew() {

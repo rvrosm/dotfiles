@@ -11,6 +11,7 @@ dotfiles add $HOME/myscripts/
 
 # .config
 dotfiles add $HOME/.config/init.sh
+dotfiles add $HOME/.config/bootstrap.sh
 dotfiles add $HOME/.config/install.sh
 dotfiles add $HOME/.config/install-pkgs.sh
 

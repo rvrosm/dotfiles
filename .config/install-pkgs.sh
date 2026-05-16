@@ -37,7 +37,7 @@ PKGS_COMMON=(base-devel git gnupg openssh curl rsync wget  zip unzip
     fd ripgrep fzf atuin duf
     lsof iotop bc tree jq 
     direnv tmux screen starship zsh alacritty zsh vim 
-    neovim tree-sitter-cli
+    nvim tree-sitter-cli
     nodejs npm go rust python 
 )
 

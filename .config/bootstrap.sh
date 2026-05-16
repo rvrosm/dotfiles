@@ -25,11 +25,22 @@ dotfiles() {
 # -----------------------------
 # checkout config
 # -----------------------------
-dotfiles checkout || {
-  echo "[bootstrap] checkout failed"
-  exit 1
+if dotfiles checkout 2>/tmp/dotfiles-checkout.log; then
+  echo "[bootstrap] checked out config"
+else
+  echo "[bootstrap] conflicts detected, backing up existing files"
 
-}
+  BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y-%m-%d_%H-%M-%S)"
+  mkdir -p "$BACKUP_DIR"
+
+  sed -n 's/^\s\+\(.*\)$/\1/p' /tmp/dotfiles-checkout.log | while read -r file; do
+    mkdir -p "$BACKUP_DIR/$(dirname "$file")"
+    mv "$HOME/$file" "$BACKUP_DIR/$file"
+  done
+
+  echo "[bootstrap] retry checkout"
+  dotfiles checkout
+fi
 
 dotfiles config status.showUntrackedFiles no
 

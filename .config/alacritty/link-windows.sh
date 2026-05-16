@@ -2,10 +2,18 @@
 set -euo pipefail
 
 # only run in WSL
-grep -qi microsoft /proc/version 2>/dev/null || {
-  echo "[alacritty] skip: not WSL"
+grep -qi microsoft /proc/version 2>/dev/null || exit 0
+
+# check WSL interop BEFORE doing anything
+if ! pwsh.exe -c "echo ok" >/dev/null 2>&1; then
+  echo "[alacritty] WSL interop not working"
+  echo "Fix /etc/wsl.conf:"
+  echo "  [interop]"
+  echo "  enabled=true"
+  echo "  appendWindowsPath=true"
+  echo "Then run in Windows: wsl --shutdown"
   exit 0
-}
+fi
 
 A="$HOME/.config/alacritty"
 SRC="$A/alacritty.toml"

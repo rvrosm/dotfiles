@@ -54,10 +54,5 @@ done
 # WSL: link Windows Alacritty config
 # -----------------------------
 if grep -qi microsoft /proc/version 2>/dev/null; then
-  if pwsh.exe -c "echo ok" >/dev/null 2>&1; then
     "$HOME/.config/alacritty/link-windows.sh"
-  else
-    echo "[init] skip Windows link (WSL interop not working)"
-    echo "        run 'wsl --shutdown' from Windows and retry"
-  fi
 fi

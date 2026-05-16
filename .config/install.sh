@@ -51,5 +51,19 @@ if command -v nvim >/dev/null 2>&1; then
   fi
 fi
 
+# -----------------------------
+# set default shell to zsh
+# -----------------------------
+if command -v zsh >/dev/null 2>&1; then
+  target_user="${SUDO_USER:-$USER}"
+
+  current_shell="$(getent passwd "$target_user" | cut -d: -f7)"
+
+  if [[ "$current_shell" != *zsh ]]; then
+    echo "[install] setting default shell to zsh for $target_user"
+    chsh -s "$(command -v zsh)" "$target_user"
+    echo "[install] please log out and log back in"
+  fi
+fi
 
 echo "[install] done ✅"

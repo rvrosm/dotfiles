@@ -6,6 +6,17 @@ echo "[bootstrap] start"
 REPO_URL="https://github.com/rvrosm/dotfiles.git"
 TARGET="$HOME/.dotfiles"
 
+# -----------------------------
+# privilege + sudo check
+# -----------------------------
+if [[ "$EUID" -ne 0 ]]; then
+  if ! command -v sudo >/dev/null 2>&1; then
+    echo "[bootstrap] ERROR: 'sudo' is required for non-root user"
+    echo "Please install it first, then re-run bootstrap."
+    exit 1
+  fi
+fi
+
 command -v git >/dev/null || {
   echo "git required"
   exit 2

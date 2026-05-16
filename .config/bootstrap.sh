@@ -36,27 +36,28 @@ dotfiles() {
 # -----------------------------
 # checkout config
 # -----------------------------
-if dotfiles checkout 2>/tmp/dotfiles-checkout.log; then
-  echo "[bootstrap] checked out config"
-else
-  echo "[bootstrap] conflicts detected, backing up existing files"
+# backup everything that might conflict
+BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y-%m-%d_%H-%M-%S)"
+created_backup=false
 
-  BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y-%m-%d_%H-%M-%S)"
-  mkdir -p "$BACKUP_DIR"
-
-  sed -n 's/^[[:space:]]\+\(.*\)$/\1/p' /tmp/dotfiles-checkout.log | while read -r file; do
+dotfiles ls-tree -r --name-only HEAD | while read -r file; do
   src="$HOME/$file"
   dst="$BACKUP_DIR/$file"
 
-  [[ -e "$src" ]] || continue
+  if [[ -e "$src" ]]; then
+    # create backup dir lazily
+    if ! $created_backup; then
+      mkdir -p "$BACKUP_DIR"
+      created_backup=true
+    fi
 
-  mkdir -p "$(dirname "$dst")"
-  mv "$src" "$dst"
-  done
+    mkdir -p "$(dirname "$dst")"
+    mv "$src" "$dst"
+  fi
+done
 
-  echo "[bootstrap] retry checkout"
-  dotfiles checkout
-fi
+# now checkout always succeeds
+dotfiles checkout
 
 dotfiles config status.showUntrackedFiles no
 

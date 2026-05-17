@@ -29,6 +29,7 @@ If you want to push changes without entering credentials, switch to SSH:
 
 ```bash
 dotfiles remote set-url origin git@github.com:rvrosm/dotfiles.git
+```
 
 ## Links
 

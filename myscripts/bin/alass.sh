@@ -1,10 +1,23 @@
-#/bin/env bash
+#!/usr/bin/env bash
+set -euo pipefail
+shopt -s nullglob
 
-for i in *.mp4; do 
-    a="${i%.mp4}"; 
-    for j in "${a}"*.srt; do 
-	tmpname="${j%.srt}".synced.srt
-	alass-cli "${i}" "${j}" "${tmpname}"; 
-	mv "${tmpname}" "${j}"
-    done; 
-done
+process_video() {
+    video="$1"
+
+    base="${video%.mp4}"
+
+    echo "Processing: $video"
+
+    for subtitle in "${base}"*.srt; do
+        [[ -e "$subtitle" ]] || continue
+        temp_file="${subtitle%.srt}.synced.srt"
+
+        echo "  Syncing: $subtitle"
+        alass-cli "$video" "$subtitle" "$temp_file" && mv "$temp_file" "$subtitle"
+    done
+}
+
+export -f process_video
+
+parallel -j4 process_video ::: *.mp4

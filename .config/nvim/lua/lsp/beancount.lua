@@ -21,11 +21,4 @@ return {
             }
         }
     },
-  on_attach = function(_, _)
-    -- vim.opt_local.foldmethod = "expr"
-    -- vim.opt_local.foldexpr = "v:lua.vim.lsp.foldexpr()"
-    -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    vim.opt_local.foldlevel = 0
-  end,
-
 }

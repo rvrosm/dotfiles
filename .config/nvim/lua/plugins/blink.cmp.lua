@@ -4,8 +4,7 @@ return {
   'saghen/blink.cmp',
   dependencies = {
     'saghen/blink.lib',
-    -- optional: provides snippets for the snippet source
-    'rafamadriz/friendly-snippets',
+    'rafamadriz/friendly-snippets'
   },
   build = function()
     -- build the fuzzy matcher, wait up to 60 seconds
@@ -32,10 +31,12 @@ return {
     --
 
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = 'enter' },
+    keymap = { preset = 'super-tab' },
 
     completion = {
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
+
+    list = { selection = { preselect = true, auto_insert = true } },
 
     -- Display a preview of the selected item on the current line
     ghost_text = { enabled = true },

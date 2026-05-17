@@ -1,5 +1,5 @@
 -- Enable Lua module caching for faster startup
-vim.loader.enable()
+-- vim.loader.enable()
 
 
 -- Set leader key early (before any mappings)
@@ -17,3 +17,6 @@ require("config.colors")
 require("config.options")
 require("config.keymaps")
 require("config.lsp")
+
+-- put at last
+require("config.autocmds")

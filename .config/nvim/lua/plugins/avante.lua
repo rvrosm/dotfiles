@@ -16,7 +16,18 @@ return {
     -- this file can contain specific instructions for your project
     instructions_file = "avante.md",
     -- for example
-    provider = "claude",
+    provider = "codex",
+  acp_providers = {
+    ["codex"] = {
+
+      command = "codex-acp",
+      args = {},
+      env = {
+        NODE_NO_WARNINGS = "1",
+        OPENAI_API_KEY = os.getenv("OPENAI_API_KEY"),
+      },
+    },
+  },
     providers = {
       claude = {
         endpoint = "https://api.anthropic.com",

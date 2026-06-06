@@ -31,12 +31,12 @@ return {
     --
 
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = 'super-tab' },
+    keymap = { preset = 'enter' },
 
     completion = {
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
 
-    list = { selection = { preselect = true, auto_insert = true } },
+    list = { selection = { preselect = true, auto_insert = false } },
 
     -- Display a preview of the selected item on the current line
     ghost_text = { enabled = true },

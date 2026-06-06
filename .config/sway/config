@@ -233,3 +233,9 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# exec rustdesk \
+# --custom-rendezvous-server "$RUSTDESK_SERVER" \
+# --relay-server  "$RUSTDESK_HBBR" \
+# --key "$RUSTDESK_KEY" \
+# --service

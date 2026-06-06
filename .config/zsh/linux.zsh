@@ -3,7 +3,7 @@
 path=($HOME/.local/share/soar/bin/ $path)
 
 # pnpm
-export PNPM_HOME="/root/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -38,4 +38,8 @@ alias Pc='pacman -Syc'
 
 alias Nl='nft list ruleset'
 alias Nf='nft flush ruleset'
+
+alias K=kubectl
+alias Kn='kubectl get nodes -o wide'
+alias Ka='kubectl get pods -A'
 # Aliases }}}

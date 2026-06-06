@@ -31,7 +31,7 @@ vim.opt.smartcase = true           -- ... but not it begins with upper case
 --
 -- -- Indent Settings
 vim.opt.expandtab = true  -- expand tabs into spaces
-vim.opt.shiftwidth = 4    -- number of spaces to use for each step of indent.
-vim.opt.tabstop = 4       -- number of spaces a TAB counts for
+vim.opt.shiftwidth = 2    -- number of spaces to use for each step of indent.
+vim.opt.tabstop = 2       -- number of spaces a TAB counts for
 vim.opt.autoindent = true -- copy indent from current line when starting a new line
 vim.opt.wrap = true
